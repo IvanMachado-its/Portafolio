@@ -1,6 +1,5 @@
 /* Table of Contents
 ----------------------------------
-
 0- Global CSS
 1- Heading CSS
 2- Button CSS
@@ -15,30 +14,32 @@
 11- Contact Area CSS
 12- Footer Area CSS
 13- Scroll-Top Area CSS
-
 */
 
 
 /*--------------------- 0- Global CSS (Start) ---------------------*/
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 :root{
-    --primary: #ffffff;
-    --secondary: #f8f9fa;
-    --dark: #000000;
-    --dark-secondary: #1a1a1a;
-    --dark-tertiary: #2d2d2d;
-    --grey-light: #e9ecef;
-    --grey: #6c757d;
-    --grey-dark: #343a40;
-    --accent: #007bff;
-    --shadow: rgba(0, 0, 0, 0.1);
-    --shadow-dark: rgba(0, 0, 0, 0.2);
-    --border: rgba(255, 255, 255, 0.1);
+    /* Colores minimalistas dark */
+    --pure-white: #ffffff;
+    --off-white: #fafafa;
+    --pure-black: #000000;
+    --dark-bg: #0a0a0a;
+    --dark-surface: #111111;
+    --dark-elevated: #1a1a1a;
+    --border-subtle: rgba(255, 255, 255, 0.06);
+    --border-light: rgba(255, 255, 255, 0.1);
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.6);
+    --text-muted: rgba(255, 255, 255, 0.4);
+    --accent: #ffffff;
+    --shadow-soft: 0 4px 24px rgba(0, 0, 0, 0.4);
+    --shadow-hard: 0 8px 32px rgba(0, 0, 0, 0.6);
 }
 
 *{
-    font-family: 'Inter', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     margin: 0;
@@ -46,15 +47,15 @@
     text-decoration: none;
     border: none;
     outline: none;
-    -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-       -moz-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-         -o-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  	        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+       -moz-transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+         -o-transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 *::selection{
-    color: var(--dark);
-    background-color: var(--primary);
+    color: var(--pure-black);
+    background-color: var(--pure-white);
 }
 
 html{
@@ -65,43 +66,29 @@ html{
 }
 
 body{
-    background-color: var(--dark);
-    color: var(--primary);
+    background-color: var(--dark-bg);
+    color: var(--text-primary);
     font-weight: 400;
     line-height: 1.6;
+    letter-spacing: 0.02em;
 }
 
 section{
-    padding: 8rem 5%;
-    max-width: 1400px;
+    padding: 10rem 5%;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
 ::-webkit-scrollbar{
-    width: 0.6rem;
+    width: 0.4rem;
 }
 
 ::-webkit-scrollbar-thumb{
-    border-radius: 1rem;
-    background-color: var(--grey);
+    background-color: var(--text-muted);
 }
 
 ::-webkit-scrollbar-track{
-    background-color: var(--dark-secondary);
-}
-
-.swiper-pagination-bullet{
-    height: 0.8rem;
-    width: 0.8rem;
-    border-radius: 50rem;
-    background-color: var(--grey);
-    opacity: 0.5;
-}
-
-.swiper-pagination-bullet-active{
-    width: 2rem;
-    background: var(--primary);
-    opacity: 1;
+    background-color: var(--dark-surface);
 }
 
 /*--------------------- 0- Global CSS (End) ---------------------*/
@@ -110,34 +97,34 @@ section{
 
 /*--------------------- 1- Heading CSS (Start) ---------------------*/
 .heading{
-    margin-bottom: 6rem;
+    margin-bottom: 8rem;
     text-align: center;
 }
 
 .heading h2{
-    font-size: 4.8rem;
-    font-weight: 700;
-    color: var(--primary);
+    font-size: 4.2rem;
+    font-weight: 300;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
     position: relative;
     display: inline-block;
-    letter-spacing: -0.02em;
 }
 
 .heading h2 span{
+    font-weight: 600;
     position: relative;
-    color: var(--grey);
-    font-weight: 300;
 }
 
 .heading h2::after{
     content: '';
     position: absolute;
-    bottom: -1rem;
+    bottom: -2rem;
     left: 50%;
     transform: translateX(-50%);
-    width: 6rem;
-    height: 0.2rem;
-    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    width: 4rem;
+    height: 0.1rem;
+    background: var(--pure-white);
+    opacity: 0.5;
 }
 
 /*--------------------- 1- Heading CSS (End) ---------------------*/
@@ -148,53 +135,56 @@ section{
 .btn{
     display: inline-flex;
     align-items: center;
-    gap: 1rem;
-    padding: 1.4rem 2.8rem;
-    font-size: 1.6rem;
+    gap: 1.2rem;
+    padding: 1.6rem 3.2rem;
+    font-size: 1.5rem;
     font-weight: 500;
-    color: var(--dark);
-    background-color: var(--primary);
-    border: 0.1rem solid var(--primary);
-    border-radius: 0.8rem;
+    color: var(--pure-black);
+    background-color: var(--pure-white);
+    border: 1px solid var(--pure-white);
+    border-radius: 0;
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    text-transform: none;
-    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
 }
 
 .btn::before{
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.5s;
+    background: var(--pure-black);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
 }
 
 .btn:hover::before{
-    left: 100%;
+    transform: translateX(0);
 }
 
 .btn:hover{
-    background-color: transparent;
-    color: var(--primary);
-    transform: translateY(-0.2rem);
-    box-shadow: 0 0.8rem 2.4rem var(--shadow-dark);
+    color: var(--pure-white);
+}
+
+.btn span,
+.btn i{
+    position: relative;
+    z-index: 1;
 }
 
 .btn-outline{
     background-color: transparent;
-    color: var(--primary);
-    border: 0.1rem solid var(--border);
+    color: var(--pure-white);
+    border: 1px solid var(--border-light);
 }
 
 .btn-outline:hover{
-    background-color: var(--primary);
-    color: var(--dark);
-    border-color: var(--primary);
+    border-color: var(--pure-white);
 }
 
 /*--------------------- 2- Button CSS (End) ---------------------*/
@@ -207,28 +197,29 @@ header{
     top: 0;
     left: 0;
     width: 100%;
-    padding: 2rem 5%;
+    padding: 2.5rem 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 0.1rem solid var(--border);
+    background: transparent;
     z-index: 1000;
     transition: all 0.3s ease;
 }
 
 header.sticky{
-    background: rgba(0, 0, 0, 0.98);
-    box-shadow: 0 0.4rem 2.4rem var(--shadow-dark);
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 2rem 5%;
 }
 
 header .logo h2{
-    font-size: 2.4rem;
-    font-weight: 800;
-    color: var(--primary);
-    letter-spacing: -0.02em;
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: var(--pure-white);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
 }
 
 header .navbar{
@@ -237,28 +228,30 @@ header .navbar{
 }
 
 header .navbar a{
-    color: var(--grey-light);
-    font-size: 1.6rem;
-    font-weight: 500;
+    color: var(--text-secondary);
+    font-size: 1.4rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
     position: relative;
-    padding: 0.8rem 0;
+    padding: 0.5rem 0;
     transition: all 0.3s ease;
 }
 
 header .navbar a::after{
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: -0.5rem;
     left: 0;
     width: 0;
-    height: 0.2rem;
-    background: var(--primary);
+    height: 1px;
+    background: var(--pure-white);
     transition: width 0.3s ease;
 }
 
 header .navbar a:hover,
 header .navbar a.active{
-    color: var(--primary);
+    color: var(--pure-white);
 }
 
 header .navbar a:hover::after,
@@ -267,17 +260,11 @@ header .navbar a.active::after{
 }
 
 header #menu-btn{
-    font-size: 2.4rem;
-    color: var(--primary);
+    font-size: 2.2rem;
+    color: var(--pure-white);
     cursor: pointer;
     display: none;
-    padding: 0.8rem;
-    border-radius: 0.6rem;
-    transition: all 0.3s ease;
-}
-
-header #menu-btn:hover{
-    background-color: var(--dark-secondary);
+    padding: 1rem;
 }
 
 /*--------------------- 3- Header Area CSS (End) ---------------------*/
@@ -290,70 +277,65 @@ header #menu-btn:hover{
     display: flex;
     align-items: center;
     padding: 0 5%;
-    background: var(--dark);
+    background: var(--dark-bg);
     position: relative;
 }
 
 .home::before{
     content: '';
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, transparent 0%, var(--dark-secondary) 100%);
-    z-index: 1;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.02) 0%, transparent 70%);
+    pointer-events: none;
 }
 
 .home .box-container{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 6rem;
+    gap: 8rem;
     align-items: center;
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
     width: 100%;
     z-index: 2;
     position: relative;
 }
 
-.home .content{
-    z-index: 3;
-}
-
 .home .content h2{
-    font-size: 2.4rem;
-    font-weight: 400;
-    color: var(--grey);
-    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
     opacity: 0;
     animation: fadeInUp 0.8s ease forwards 0.2s;
 }
 
 .home .content h1{
-    font-size: 6rem;
-    font-weight: 800;
-    color: var(--primary);
+    font-size: 5.4rem;
+    font-weight: 700;
+    color: var(--pure-white);
     line-height: 1.1;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     letter-spacing: -0.03em;
     opacity: 0;
     animation: fadeInUp 0.8s ease forwards 0.4s;
 }
 
 .home .content h1 span{
-    background: linear-gradient(135deg, var(--primary) 0%, var(--grey) 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    position: relative;
+    font-weight: 300;
 }
 
 .home .content p{
-    font-size: 1.8rem;
-    color: var(--grey);
-    line-height: 1.7;
-    margin-bottom: 3rem;
+    font-size: 1.7rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 4rem;
     max-width: 50rem;
     opacity: 0;
     animation: fadeInUp 0.8s ease forwards 0.6s;
@@ -366,25 +348,17 @@ header #menu-btn:hover{
 
 .home .image{
     text-align: center;
-    z-index: 3;
     opacity: 0;
-    animation: fadeInUp 0.8s ease forwards 1s;
+    animation: fadeIn 1s ease forwards 1s;
 }
 
 .home .image img{
     width: 40rem;
     height: 40rem;
-    border-radius: 50%;
+    border-radius: 0;
     object-fit: cover;
-    border: 0.4rem solid var(--border);
-    box-shadow: 0 2rem 4rem var(--shadow-dark);
-    filter: grayscale(100%);
-    transition: all 0.5s ease;
-}
-
-.home .image img:hover{
-    filter: grayscale(0%);
-    transform: scale(1.05);
+    filter: grayscale(100%) contrast(1.2);
+    border: 1px solid var(--border-subtle);
 }
 
 @keyframes fadeInUp {
@@ -394,792 +368,7 @@ header #menu-btn:hover{
     }
     from {
         opacity: 0;
-        transform: translateY(3rem);
-    }
-}
-
-/*--------------------- 4- Home Area CSS (End) ---------------------*/
-
-
-
-/*--------------------- 5- About Area CSS (Start) ---------------------*/
-.about .box-container{
-    display: grid;
-    grid-template-columns: 35rem 1fr;
-    gap: 6rem;
-    align-items: start;
-    margin-bottom: 6rem;
-}
-
-.about .image{
-    position: sticky;
-    top: 12rem;
-}
-
-.about .image img{
-    width: 100%;
-    border-radius: 1.2rem;
-    border: 0.1rem solid var(--border);
-    box-shadow: 0 2rem 4rem var(--shadow-dark);
-    filter: grayscale(100%);
-    transition: all 0.5s ease;
-}
-
-.about .image img:hover{
-    filter: grayscale(0%);
-    transform: translateY(-0.5rem);
-}
-
-.about .content h2{
-    font-size: 3.6rem;
-    font-weight: 700;
-    color: var(--primary);
-    margin-bottom: 2rem;
-    letter-spacing: -0.02em;
-}
-
-.about .content > p{
-    font-size: 1.7rem;
-    color: var(--grey);
-    line-height: 1.8;
-    margin-bottom: 3rem;
-}
-
-.about .content .about-info{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    margin-bottom: 4rem;
-}
-
-.about .content .about-info .info h4{
-    font-size: 1.6rem;
-    color: var(--primary);
-    margin-bottom: 0.8rem;
-    font-weight: 600;
-}
-
-.about .content .about-info .info span{
-    font-size: 1.5rem;
-    color: var(--grey);
-    display: block;
-    line-height: 1.6;
-}
-
-.about .content .about-info .info .btn{
-    margin-top: 2rem;
-}
-
-.counting{
-    background: var(--dark-secondary);
-    border-radius: 1.2rem;
-    padding: 3rem;
-    border: 0.1rem solid var(--border);
-}
-
-.counting .box{
-    text-align: center;
-    padding: 2rem;
-    border-radius: 0.8rem;
-    transition: all 0.3s ease;
-}
-
-.counting .box:hover{
-    background: var(--dark-tertiary);
-    transform: translateY(-0.5rem);
-}
-
-.counting .box .count{
-    font-size: 4rem;
-    font-weight: 800;
-    color: var(--primary);
-    margin-bottom: 1rem;
-    display: block;
-}
-
-.counting .box h3{
-    font-size: 1.6rem;
-    color: var(--grey);
-    font-weight: 500;
-}
-
-.skill-container{
-    margin-top: 8rem;
-}
-
-.skills{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
-    gap: 4rem;
-}
-
-.skill-item{
-    background: var(--dark-secondary);
-    padding: 3rem;
-    border-radius: 1.2rem;
-    border: 0.1rem solid var(--border);
-}
-
-.skill-item .box{
-    margin-bottom: 2.5rem;
-}
-
-.skill-item .box:last-child{
-    margin-bottom: 0;
-}
-
-.skill-item .box h3{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-    font-size: 1.6rem;
-    color: var(--primary);
-    font-weight: 600;
-}
-
-.skill-item .box .progress-bar{
-    width: 100%;
-    height: 0.8rem;
-    background: var(--dark-tertiary);
-    border-radius: 1rem;
-    overflow: hidden;
-    position: relative;
-}
-
-.skill-item .box .progress-bar span{
-    display: block;
-    height: 100%;
-    background: linear-gradient(90deg, var(--primary), var(--grey));
-    border-radius: 1rem;
-    position: relative;
-    overflow: hidden;
-}
-
-.skill-item .box .progress-bar span::after{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-    animation: shimmer 2s infinite;
-}
-
-@keyframes shimmer {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
-}
-
-/*--------------------- 5- About Area CSS (End) ---------------------*/
-
-
-
-/*--------------------- 6- Qualification Area CSS (Start) ---------------------*/
-.qualification .box-container{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-}
-
-.education, .experience{
-    position: relative;
-}
-
-.education::before, .experience::before{
-    content: '';
-    position: absolute;
-    left: 2rem;
-    top: 0;
-    height: 100%;
-    width: 0.2rem;
-    background: linear-gradient(to bottom, var(--primary), transparent);
-}
-
-.experience-item{
-    position: relative;
-    margin-left: 6rem;
-    margin-bottom: 4rem;
-    background: var(--dark-secondary);
-    padding: 2.5rem;
-    border-radius: 1.2rem;
-    border: 0.1rem solid var(--border);
-    transition: all 0.3s ease;
-}
-
-.experience-item:hover{
-    transform: translateX(1rem);
-    box-shadow: 0 1rem 3rem var(--shadow-dark);
-}
-
-.experience-item i{
-    position: absolute;
-    left: -6.5rem;
-    top: 2rem;
-    width: 4rem;
-    height: 4rem;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.8rem;
-    color: var(--dark);
-    background: var(--primary);
-    border: 0.3rem solid var(--dark);
-    box-shadow: 0 0.4rem 1.2rem var(--shadow-dark);
-}
-
-.experience-item span{
-    background: var(--dark-tertiary);
-    color: var(--grey);
-    padding: 0.6rem 1.4rem;
-    font-size: 1.4rem;
-    border-radius: 2rem;
-    display: inline-block;
-    margin-bottom: 1.5rem;
-    font-weight: 500;
-}
-
-.experience-item h3{
-    font-size: 2.2rem;
-    color: var(--primary);
-    margin-bottom: 1rem;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-}
-
-.experience-item p{
-    color: var(--grey);
-    font-size: 1.5rem;
-    line-height: 1.7;
-}
-
-/*--------------------- 6- Qualification Area CSS (End) ---------------------*/
-
-
-
-/*--------------------- 7- Services Area CSS (Start) ---------------------*/
-.service .box-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-    gap: 3rem;
-}
-
-.service-item{
-    background: var(--dark-secondary);
-    padding: 4rem 3rem;
-    text-align: center;
-    border: 0.1rem solid var(--border);
-    border-radius: 1.2rem;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-}
-
-.service-item::before{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
-    transition: left 0.6s;
-}
-
-.service-item:hover::before{
-    left: 100%;
-}
-
-.service-item:hover{
-    transform: translateY(-1rem);
-    box-shadow: 0 2rem 4rem var(--shadow-dark);
-    border-color: var(--primary);
-}
-
-.service-item i{
-    color: var(--primary);
-    font-size: 4rem;
-    margin-bottom: 2rem;
-    transition: all 0.3s ease;
-}
-
-.service-item:hover i{
-    transform: scale(1.1);
-}
-
-.service-item h3{
-    font-size: 2.2rem;
-    color: var(--primary);
-    margin-bottom: 1.5rem;
-    font-weight: 600;
-}
-
-.service-item p{
-    font-size: 1.6rem;
-    color: var(--grey);
-    line-height: 1.7;
-}
-
-/*--------------------- 7- Services Area CSS (End) ---------------------*/
-
-
-
-/*--------------------- 8- Portfolio Area CSS (Start) ---------------------*/
-.controls{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 2rem;
-    margin-bottom: 4rem;
-    list-style: none;
-}
-
-.controls .button{
-    padding: 1rem 2rem;
-    font-size: 1.6rem;
-    color: var(--grey);
-    background: var(--dark-secondary);
-    border: 0.1rem solid var(--border);
-    border-radius: 2rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: 500;
-}
-
-.controls .button:hover,
-.controls .button.active{
-    color: var(--dark);
-    background: var(--primary);
-    border-color: var(--primary);
-    transform: translateY(-0.2rem);
-}
-
-.portfolio .box-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
-    gap: 2rem;
-}
-
-.portfolio-item{
-    border-radius: 1.2rem;
-    height: 28rem;
-    overflow: hidden;
-    position: relative;
-    border: 0.1rem solid var(--border);
-    background: var(--dark-secondary);
-}
-
-.portfolio-item img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(100%);
-    transition: all 0.5s ease;
-}
-
-.portfolio-item:hover img{
-    filter: grayscale(0%);
-    transform: scale(1.05);
-}
-
-.portfolio-item .content{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 2rem;
-    opacity: 0;
-    transition: all 0.4s ease;
-}
-
-.portfolio-item:hover .content{
-    opacity: 1;
-}
-
-.portfolio-item .content h4{
-    font-size: 2.4rem;
-    font-weight: 600;
-    color: var(--primary);
-    margin-bottom: 1rem;
-    transform: translateY(2rem);
-    transition: all 0.4s ease 0.1s;
-}
-
-.portfolio-item .content p{
-    font-size: 1.6rem;
-    color: var(--grey);
-    margin-bottom: 2rem;
-    transform: translateY(2rem);
-    transition: all 0.4s ease 0.2s;
-}
-
-.portfolio-item .content .view-btn{
-    transform: translateY(2rem);
-    transition: all 0.4s ease 0.3s;
-}
-
-.portfolio-item:hover .content h4,
-.portfolio-item:hover .content p,
-.portfolio-item:hover .content .view-btn{
-    transform: translateY(0);
-}
-
-/*--------------------- 8- Portfolio Area CSS (End) ---------------------*/
-
-
-
-/*--------------------- 9- Testimonials Area CSS (Start) ---------------------*/
-.testimonial-slider{
-    position: relative;
-    padding-bottom: 6rem;
-}
-
-.testi-item{
-    background: var(--dark-secondary);
-    border: 0.1rem solid var(--border);
-    border-radius: 1.2rem;
-    padding: 4rem 3rem;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.testi-item:hover{
-    border-color: var(--primary);
-    transform: translateY(-0.5rem);
-    box-shadow: 0 1rem 3rem var(--shadow-dark);
-}
-
-.testi-item img{
-    width: 8rem;
-    height: 8rem;
-    border-radius: 50%;
-    border: 0.3rem solid var(--border);
-    margin-bottom: 2rem;
-    filter: grayscale(100%);
-    transition: all 0.3s ease;
-}
-
-.testi-item:hover img{
-    filter: grayscale(0%);
-    border-color: var(--primary);
-}
-
-.testi-item .fa-quote-left{
-    font-size: 2.4rem;
-    color: var(--grey);
-    margin-bottom: 2rem;
-}
-
-.testi-item p{
-    color: var(--grey);
-    font-size: 1.6rem;
-    line-height: 1.7;
-    margin-bottom: 2rem;
-    font-style: italic;
-}
-
-.testi-item .intro h3{
-    font-size: 2rem;
-    color: var(--primary);
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-}
-
-.testi-item .intro h5{
-    color: var(--grey);
-    font-size: 1.4rem;
-    font-weight: 400;
-}
-
-/*--------------------- 9- Testimonials Area CSS (End) ---------------------*/
-
-
-
-/*--------------------- 10- Blog Area CSS (Start) ---------------------*/
-.blog-slider{
-    position: relative;
-    padding-bottom: 6rem;
-}
-
-.blog-item{
-    background: var(--dark-secondary);
-    border: 0.1rem solid var(--border);
-    border-radius: 1.2rem;
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-.blog-item:hover{
-    transform: translateY(-0.5rem);
-    box-shadow: 0 1rem 3rem var(--shadow-dark);
-    border-color: var(--primary);
-}
-
-.blog-item .image{
-    height: 22rem;
-    overflow: hidden;
-    position: relative;
-}
-
-.blog-item .image img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(100%);
-    transition: all 0.5s ease;
-}
-
-.blog-item:hover .image img{
-    filter: grayscale(0%);
-    transform: scale(1.1);
-}
-
-.blog-item .content{
-    padding: 3rem 2.5rem;
-}
-
-.blog-item .content .intro{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 0.1rem solid var(--border);
-    padding-bottom: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.blog-item .content .intro h5{
-    font-size: 1.4rem;
-    color: var(--grey);
-    font-weight: 500;
-}
-
-.blog-item .content .intro h5 i{
-    color: var(--primary);
-    margin-right: 0.5rem;
-}
-
-.blog-item .content .main-heading{
-    font-size: 2rem;
-    font-weight: 600;
-    color: var(--primary);
-    margin-bottom: 1.5rem;
-    line-height: 1.4;
-}
-
-.blog-item p{
-    color: var(--grey);
-    font-size: 1.5rem;
-    line-height: 1.7;
-    margin-bottom: 2rem;
-}
-
-/*--------------------- 10- Blog Area CSS (End) ---------------------*/
-
-
-
-/*--------------------- 11- Contact Area CSS (Start) ---------------------*/
-.contact .box-container{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: start;
-}
-
-.contact-info h3{
-    font-size: 3rem;
-    color: var(--primary);
-    margin-bottom: 2rem;
-    font-weight: 600;
-}
-
-.contact-info > p{
-    font-size: 1.7rem;
-    color: var(--grey);
-    margin-bottom: 3rem;
-    line-height: 1.7;
-}
-
-.contact-info .info-item{
-    margin-bottom: 2.5rem;
-    padding: 2rem;
-    background: var(--dark-secondary);
-    border-radius: 1rem;
-    border: 0.1rem solid var(--border);
-    transition: all 0.3s ease;
-}
-
-.contact-info .info-item:hover{
-    border-color: var(--primary);
-    transform: translateX(0.5rem);
-}
-
-.contact-info .info-item h4{
-    font-size: 1.7rem;
-    color: var(--primary);
-    margin-bottom: 1rem;
-    font-weight: 600;
-}
-
-.contact-info .info-item .detail{
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-}
-
-.contact-info .info-item .detail .fas,
-.contact-info .info-item .detail .fab{
-    width: 4rem;
-    height: 4rem;
-    border-radius: 50%;
-    background: var(--primary);
-    color: var(--dark);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.6rem;
-    flex-shrink: 0;
-}
-
-.contact-info .info-item .detail p{
-    font-size: 1.5rem;
-    color: var(--grey);
-    line-height: 1.6;
-}
-
-.contact-form{
-    background: var(--dark-secondary);
-    padding: 4rem;
-    border-radius: 1.2rem;
-    border: 0.1rem solid var(--border);
-}
-
-.contact-form .box{
-    width: 100%;
-    color: var(--primary);
-    font-size: 1.6rem;
-    background: var(--dark-tertiary);
-    border: 0.1rem solid var(--border);
-    padding: 1.8rem 2rem;
-    margin-bottom: 2rem;
-    border-radius: 0.8rem;
-    transition: all 0.3s ease;
-    font-family: inherit;
-}
-
-.contact-form .box:focus{
-    border-color: var(--primary);
-    background: var(--dark);
-    box-shadow: 0 0 0 0.3rem rgba(255, 255, 255, 0.1);
-}
-
-.contact-form .box::placeholder{
-    color: var(--grey);
-}
-
-.contact-form textarea{
-    height: 15rem;
-    resize: vertical;
-    font-family: inherit;
-}
-
-.contact .alert{
-    font-size: 1.6rem;
-    color: var(--primary);
-    margin-top: 2rem;
-    padding: 1rem;
-    border-radius: 0.8rem;
-    background: var(--dark-tertiary);
-    border: 0.1rem solid var(--border);
-}
-
-/*--------------------- 11- Contact Area CSS (End) ---------------------*/
-
-
-
-/*--------------------- 12- Footer Area CSS (Start) ---------------------*/
-footer{
-    background: var(--dark-secondary);
-    padding: 4rem 0;
-    text-align: center;
-    border-top: 0.1rem solid var(--border);
-    margin-top: 8rem;
-}
-
-footer .social{
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-bottom: 3rem;
-}
-
-footer .social .fab{
-    width: 5rem;
-    height: 5rem;
-    background: var(--dark-tertiary);
-    border: 0.1rem solid var(--border);
-    border-radius: 50%;
-    color: var(--primary);
-    font-size: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-
-footer .social .fab:hover{
-    background: var(--primary);
-    color: var(--dark);
-    border-color: var(--primary);
-    transform: translateY(-0.3rem);
-}
-
-footer .content p{
-    font-size: 1.6rem;
-    color: var(--grey);
-    font-weight: 400;
-}
-
-footer .content p span{
-    color: var(--primary);
-    font-weight: 600;
-}
-
-/*--------------------- 12- Footer Area CSS (End) ---------------------*/
-
-
-
-/*--------------------- 13- Scroll-Top Area CSS (Start) ---------------------*/
-.scroll-top{
-    position: fixed;
-    bottom: 3rem;
-    right: 3rem;
-    width: 5rem;
-    height: 5rem;
-    background: var(--primary);
-    color: var(--dark);
-    border: none;
-    border-radius: 50%;
-    font-size: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 999;
-    transition: all 0.3s ease;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(2rem);
-    box-shadow: 0 0.4rem 1.2rem var(--shadow-dark);
+        transform: translateY(2rem);
 }
 
 .scroll-top.active{
@@ -1189,10 +378,9 @@ footer .content p span{
 }
 
 .scroll-top:hover{
-    background: var(--dark-secondary);
-    color: var(--primary);
-    transform: translateY(-0.3rem);
-    box-shadow: 0 0.8rem 2.4rem var(--shadow-dark);
+    background: var(--pure-white);
+    color: var(--pure-black);
+    border-color: var(--pure-white);
 }
 
 /*--------------------- 13- Scroll-Top Area CSS (End) ---------------------*/
@@ -1206,7 +394,7 @@ footer .content p span{
     }
     
     section{
-        padding: 6rem 3%;
+        padding: 8rem 3%;
     }
 }
 
@@ -1217,13 +405,17 @@ footer .content p span{
     
     .home .box-container{
         grid-template-columns: 1fr;
-        gap: 4rem;
+        gap: 5rem;
         text-align: center;
+    }
+    
+    .home .content h1{
+        font-size: 4.5rem;
     }
     
     .about .box-container{
         grid-template-columns: 1fr;
-        gap: 4rem;
+        gap: 5rem;
     }
     
     .about .image{
@@ -1233,12 +425,12 @@ footer .content p span{
     
     .qualification .box-container{
         grid-template-columns: 1fr;
-        gap: 4rem;
+        gap: 5rem;
     }
     
     .contact .box-container{
         grid-template-columns: 1fr;
-        gap: 4rem;
+        gap: 5rem;
     }
 }
 
@@ -1253,20 +445,19 @@ footer .content p span{
     
     header .navbar{
         position: fixed;
-        top: 8rem;
+        top: 7rem;
         right: -100%;
         width: 30rem;
-        height: calc(100vh - 8rem);
-        background: var(--dark-secondary);
-        border: 0.1rem solid var(--border);
-        border-radius: 1rem 0 0 1rem;
-        padding: 2rem;
+        height: calc(100vh - 7rem);
+        background: var(--dark-surface);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-left: 1px solid var(--border-subtle);
+        padding: 3rem 2rem;
         flex-direction: column;
         align-items: flex-start;
         gap: 2rem;
         transition: right 0.3s ease;
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
     }
     
     header .navbar.active{
@@ -1274,18 +465,23 @@ footer .content p span{
     }
     
     header .navbar a{
-        color: var(--primary);
-        font-size: 1.8rem;
+        color: var(--text-primary);
+        font-size: 1.6rem;
         width: 100%;
         padding: 1.5rem 0;
+        border-bottom: 1px solid var(--border-subtle);
+    }
+    
+    header .navbar a:last-child{
+        border-bottom: none;
     }
     
     section{
-        padding: 4rem 2rem;
+        padding: 6rem 2rem;
     }
     
     .home .content h1{
-        font-size: 4.8rem;
+        font-size: 4rem;
     }
     
     .skills{
@@ -1309,7 +505,7 @@ footer .content p span{
     }
     
     section{
-        padding: 3rem 1.5rem;
+        padding: 5rem 1.5rem;
     }
     
     header{
@@ -1319,24 +515,28 @@ footer .content p span{
     header .navbar{
         width: 100%;
         right: -100%;
-        top: 7rem;
-        border-radius: 0;
-        border: none;
-        border-top: 0.1rem solid var(--border);
+        top: 6.5rem;
+        border-left: none;
+        border-top: 1px solid var(--border-subtle);
     }
     
     .home .content h1{
-        font-size: 4rem;
-        line-height: 1.2;
+        font-size: 3.5rem;
+        line-height: 1.3;
     }
     
     .home .content p{
-        font-size: 1.6rem;
+        font-size: 1.5rem;
+    }
+    
+    .home .image img{
+        width: 30rem;
+        height: 30rem;
     }
     
     .about .content .about-info{
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 3rem;
     }
     
     .service .box-container{
@@ -1353,6 +553,7 @@ footer .content p span{
     
     .experience-item{
         margin-left: 4rem;
+        padding: 2rem;
     }
     
     .experience-item i{
@@ -1361,95 +562,886 @@ footer .content p span{
         height: 3rem;
         font-size: 1.4rem;
     }
+    
+    .btn{
+        padding: 1.4rem 2.8rem;
+        font-size: 1.3rem;
+    }
 }
 
 /*--------------------- Responsive Design (End) ---------------------*/
 
 
 
-/*--------------------- Additional Modern Enhancements (Start) ---------------------*/
-/* Loading Animation */
-@keyframes pulse {
-    0% { opacity: 1; }
-    50% { opacity: 0.5; }
-    100% { opacity: 1; }
+/*--------------------- Modern Minimal Enhancements (Start) ---------------------*/
+
+/* Animaciones sutiles */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-2rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
+@keyframes fadeInSlow {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Loading state minimalista */
 .loading {
-    animation: pulse 1.5s ease-in-out infinite;
+    opacity: 0.3;
 }
 
-/* Smooth scrolling enhancement */
+/* Smooth scrolling mejorado */
 @media (prefers-reduced-motion: no-preference) {
     html {
         scroll-behavior: smooth;
     }
+    
+    * {
+        animation-duration: 0.4s !important;
+    }
 }
 
-/* Focus styles for accessibility */
+/* Focus minimalista */
 *:focus-visible {
-    outline: 0.2rem solid var(--primary);
-    outline-offset: 0.2rem;
+    outline: 1px solid var(--pure-white);
+    outline-offset: 0.3rem;
 }
 
-/* Custom selection for better contrast */
+/* Selection personalizada */
 ::selection {
-    background: var(--primary);
-    color: var(--dark);
+    background: var(--pure-white);
+    color: var(--pure-black);
 }
 
 ::-moz-selection {
-    background: var(--primary);
-    color: var(--dark);
+    background: var(--pure-white);
+    color: var(--pure-black);
 }
 
-/* Enhanced transitions for modern feel */
-.service-item, .portfolio-item, .blog-item, .testi-item,
-.experience-item, .contact-info .info-item {
-    will-change: transform;
+/* Hover states globales */
+a, button {
+    position: relative;
 }
 
-/* Glass morphism effect for overlay elements */
-.glass {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 0.1rem solid rgba(255, 255, 255, 0.2);
-}
-
-/* Text gradient utility */
+/* Text gradient sutil */
 .gradient-text {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--grey) 100%);
+    background: linear-gradient(90deg, var(--pure-white) 0%, var(--text-secondary) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-/* Micro-interactions */
-.btn, .controls .button, footer .social .fab {
-    position: relative;
-    overflow: hidden;
-}
-
-.btn::after, .controls .button::after, footer .social .fab::after {
+/* Efecto de hover minimalista para cards */
+.service-item::before,
+.portfolio-item::before,
+.experience-item::before {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    transition: width 0.6s, height 0.6s, top 0.6s, left 0.6s;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent, rgba(255,255,255,0.03));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
 }
 
-.btn:active::after, .controls .button:active::after, 
-footer .social .fab:active::after {
-    width: 30rem;
+.service-item:hover::before,
+.portfolio-item:hover::before,
+.experience-item:hover::before {
+    opacity: 1;
+}
+
+/* Micro-interacciones */
+.btn, 
+.controls .button, 
+footer .social .fab,
+.scroll-top {
+    transform-style: preserve-3d;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Estados de carga elegantes */
+input:disabled,
+textarea:disabled,
+button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+/* Scrollbar minimalista */
+::-webkit-scrollbar {
+    width: 0.2rem;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--text-muted);
+    border-radius: 0;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Print styles */
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+    
+    header, 
+    footer, 
+    .scroll-top {
+        display: none;
+    }
+}
+
+/* Accesibilidad mejorada */
+@media (prefers-contrast: high) {
+    :root {
+        --border-subtle: rgba(255, 255, 255, 0.2);
+        --text-secondary: rgba(255, 255, 255, 0.8);
+    }
+}
+
+/* Dark mode explícito (ya aplicado por defecto) */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: var(--dark-bg);
+    }
+}
+
+/* Optimización de rendimiento */
+.home .image img,
+.about .image img,
+.portfolio-item img,
+.blog-item .image img {
+    will-change: transform, filter;
+}
+
+/* Transiciones GPU aceleradas */
+.btn,
+.service-item,
+.portfolio-item,
+.experience-item {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/*--------------------- Modern Minimal Enhancements (End) ---------------------*/
+    }
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+    from { opacity: 0; }
+}
+
+/*--------------------- 4- Home Area CSS (End) ---------------------*/
+
+
+
+/*--------------------- 5- About Area CSS (Start) ---------------------*/
+.about .box-container{
+    display: grid;
+    grid-template-columns: 35rem 1fr;
+    gap: 8rem;
+    align-items: start;
+    margin-bottom: 8rem;
+}
+
+.about .image{
+    position: sticky;
+    top: 12rem;
+}
+
+.about .image img{
+    width: 100%;
+    border-radius: 0;
+    filter: grayscale(100%) contrast(1.2);
+    border: 1px solid var(--border-subtle);
+}
+
+.about .content h2{
+    font-size: 3.2rem;
+    font-weight: 300;
+    color: var(--pure-white);
+    margin-bottom: 3rem;
+    letter-spacing: -0.02em;
+}
+
+.about .content > p{
+    font-size: 1.6rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 4rem;
+}
+
+.about .content .about-info{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 5rem;
+}
+
+.about .content .about-info .info h4{
+    font-size: 1.4rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.8rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.about .content .about-info .info h4 span{
+    color: var(--pure-white);
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: normal;
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.counting{
+    background: transparent;
+    border: 1px solid var(--border-subtle);
+    padding: 4rem;
+}
+
+.counting .box{
+    text-align: center;
+}
+
+.counting .box .count{
+    font-size: 4.8rem;
+    font-weight: 200;
+    color: var(--pure-white);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.counting .box h3{
+    font-size: 1.4rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.skill-container{
+    margin-top: 10rem;
+}
+
+.skills{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+    gap: 4rem;
+}
+
+.skill-item{
+    background: transparent;
+    padding: 3rem;
+    border: 1px solid var(--border-subtle);
+}
+
+.skill-item .box{
+    margin-bottom: 3rem;
+}
+
+.skill-item .box:last-child{
+    margin-bottom: 0;
+}
+
+.skill-item .box h3{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.skill-item .box h3 span{
+    color: var(--pure-white);
+    font-weight: 500;
+}
+
+.skill-item .box .progress-bar{
+    width: 100%;
+    height: 0.2rem;
+    background: var(--border-subtle);
+    overflow: hidden;
+    position: relative;
+}
+
+.skill-item .box .progress-bar span{
+    display: block;
+    height: 100%;
+    background: var(--pure-white);
+}
+
+/*--------------------- 5- About Area CSS (End) ---------------------*/
+
+
+
+/*--------------------- 6- Qualification Area CSS (Start) ---------------------*/
+.qualification .box-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8rem;
+}
+
+.education, .experience{
+    position: relative;
+}
+
+.education::before, .experience::before{
+    content: '';
+    position: absolute;
+    left: 2rem;
+    top: 0;
+    height: 100%;
+    width: 1px;
+    background: var(--border-subtle);
+}
+
+.experience-item{
+    position: relative;
+    margin-left: 6rem;
+    margin-bottom: 4rem;
+    background: transparent;
+    padding: 3rem;
+    border: 1px solid var(--border-subtle);
+    transition: all 0.3s ease;
+}
+
+.experience-item:hover{
+    border-color: var(--border-light);
+    transform: translateX(0.5rem);
+}
+
+.experience-item i{
+    position: absolute;
+    left: -6.5rem;
+    top: 3rem;
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    color: var(--pure-white);
+    background: var(--dark-bg);
+    border: 1px solid var(--border-light);
+}
+
+.experience-item span{
+    color: var(--text-secondary);
+    font-size: 1.3rem;
+    display: inline-block;
+    margin-bottom: 2rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.experience-item h3{
+    font-size: 2rem;
+    color: var(--pure-white);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+}
+
+.experience-item p{
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    line-height: 1.8;
+}
+
+/*--------------------- 6- Qualification Area CSS (End) ---------------------*/
+
+
+
+/*--------------------- 7- Services Area CSS (Start) ---------------------*/
+.service .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 3rem;
+}
+
+.service-item{
+    background: transparent;
+    padding: 5rem 3rem;
+    text-align: center;
+    border: 1px solid var(--border-subtle);
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.service-item:hover{
+    border-color: var(--border-light);
+    transform: translateY(-0.5rem);
+}
+
+.service-item i{
+    color: var(--pure-white);
+    font-size: 3.2rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.8;
+}
+
+.service-item h3{
+    font-size: 2rem;
+    color: var(--pure-white);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+}
+
+.service-item p{
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+/*--------------------- 7- Services Area CSS (End) ---------------------*/
+
+
+
+/*--------------------- 8- Portfolio Area CSS (Start) ---------------------*/
+.controls{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 5rem;
+    list-style: none;
+}
+
+.controls .button{
+    padding: 1rem 2.5rem;
+    font-size: 1.4rem;
+    color: var(--text-secondary);
+    background: transparent;
+    border: 1px solid var(--border-subtle);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.controls .button:hover,
+.controls .button.active{
+    color: var(--pure-white);
+    border-color: var(--pure-white);
+}
+
+.portfolio .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+    gap: 2rem;
+}
+
+.portfolio-item{
     height: 30rem;
-    top: 50%;
-    left: 50%;
+    overflow: hidden;
+    position: relative;
+    background: var(--dark-surface);
 }
 
-/*--------------------- Additional Modern Enhancements (End) ---------------------*/
+.portfolio-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(1.2);
+    transition: all 0.5s ease;
+}
+
+.portfolio-item:hover img{
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+.portfolio-item .content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 3rem;
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.portfolio-item:hover .content{
+    opacity: 1;
+}
+
+.portfolio-item .content h4{
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: var(--pure-white);
+    margin-bottom: 1rem;
+    transform: translateY(1rem);
+    transition: all 0.4s ease 0.1s;
+}
+
+.portfolio-item .content p{
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+    transform: translateY(1rem);
+    transition: all 0.4s ease 0.2s;
+}
+
+.portfolio-item:hover .content h4,
+.portfolio-item:hover .content p{
+    transform: translateY(0);
+}
+
+/*--------------------- 8- Portfolio Area CSS (End) ---------------------*/
+
+
+
+/*--------------------- 9- Testimonials Area CSS (Start) ---------------------*/
+.testimonial-slider{
+    position: relative;
+    padding-bottom: 6rem;
+}
+
+.testi-item{
+    background: transparent;
+    border: 1px solid var(--border-subtle);
+    padding: 5rem 3rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.testi-item:hover{
+    border-color: var(--border-light);
+}
+
+.testi-item img{
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    margin-bottom: 3rem;
+    filter: grayscale(100%);
+    border: 1px solid var(--border-subtle);
+}
+
+.testi-item .fa-quote-left{
+    font-size: 2rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.testi-item p{
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    font-style: italic;
+}
+
+.testi-item .intro h3{
+    font-size: 1.8rem;
+    color: var(--pure-white);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.testi-item .intro h5{
+    color: var(--text-muted);
+    font-size: 1.3rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/*--------------------- 9- Testimonials Area CSS (End) ---------------------*/
+
+
+
+/*--------------------- 10- Blog Area CSS (Start) ---------------------*/
+.blog-slider{
+    position: relative;
+    padding-bottom: 6rem;
+}
+
+.blog-item{
+    background: transparent;
+    border: 1px solid var(--border-subtle);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.blog-item:hover{
+    border-color: var(--border-light);
+}
+
+.blog-item .image{
+    height: 22rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.blog-item .image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(1.2);
+    transition: all 0.5s ease;
+}
+
+.blog-item:hover .image img{
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+.blog-item .content{
+    padding: 3rem;
+}
+
+.blog-item .content .intro{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.blog-item .content .intro h5{
+    font-size: 1.3rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.blog-item .content .main-heading{
+    font-size: 1.9rem;
+    font-weight: 500;
+    color: var(--pure-white);
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+}
+
+.blog-item p{
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    line-height: 1.8;
+}
+
+/*--------------------- 10- Blog Area CSS (End) ---------------------*/
+
+
+
+/*--------------------- 11- Contact Area CSS (Start) ---------------------*/
+.contact .box-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8rem;
+    align-items: start;
+}
+
+.contact-info h3{
+    font-size: 2.8rem;
+    color: var(--pure-white);
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.contact-info > p{
+    font-size: 1.6rem;
+    color: var(--text-secondary);
+    margin-bottom: 4rem;
+    line-height: 1.8;
+}
+
+.contact-info .info-item{
+    margin-bottom: 3rem;
+    padding: 2.5rem;
+    background: transparent;
+    border: 1px solid var(--border-subtle);
+    transition: all 0.3s ease;
+}
+
+.contact-info .info-item:hover{
+    border-color: var(--border-light);
+}
+
+.contact-info .info-item h4{
+    font-size: 1.4rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.contact-info .info-item .detail{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.contact-info .info-item .detail .fas,
+.contact-info .info-item .detail .fab{
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    color: var(--pure-white);
+    border: 1px solid var(--border-light);
+    flex-shrink: 0;
+}
+
+.contact-info .info-item .detail p{
+    font-size: 1.5rem;
+    color: var(--pure-white);
+    line-height: 1.6;
+}
+
+.contact-form{
+    background: transparent;
+    padding: 4rem;
+    border: 1px solid var(--border-subtle);
+}
+
+.contact-form .box{
+    width: 100%;
+    color: var(--pure-white);
+    font-size: 1.5rem;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 1.8rem 0;
+    margin-bottom: 3rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.contact-form .box:focus{
+    border-color: var(--pure-white);
+}
+
+.contact-form .box::placeholder{
+    color: var(--text-muted);
+    font-size: 1.4rem;
+}
+
+.contact-form textarea{
+    height: 12rem;
+    resize: none;
+    font-family: inherit;
+}
+
+.contact .alert{
+    font-size: 1.5rem;
+    color: var(--pure-white);
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: transparent;
+    border: 1px solid var(--border-light);
+}
+
+/*--------------------- 11- Contact Area CSS (End) ---------------------*/
+
+
+
+/*--------------------- 12- Footer Area CSS (Start) ---------------------*/
+footer{
+    background: transparent;
+    padding: 6rem 0;
+    text-align: center;
+    border-top: 1px solid var(--border-subtle);
+    margin-top: 10rem;
+}
+
+footer .social{
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+footer .social .fab{
+    width: 4.5rem;
+    height: 4.5rem;
+    background: transparent;
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+footer .social .fab:hover{
+    border-color: var(--pure-white);
+    color: var(--pure-white);
+    transform: translateY(-0.3rem);
+}
+
+footer .content p{
+    font-size: 1.4rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+}
+
+footer .content p span{
+    color: var(--pure-white);
+    font-weight: 400;
+}
+
+/*--------------------- 12- Footer Area CSS (End) ---------------------*/
+
+
+
+/*--------------------- 13- Scroll-Top Area CSS (Start) ---------------------*/
+.scroll-top{
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+    width: 5rem;
+    height: 5rem;
+    background: transparent;
+    color: var(--pure-white);
+    border: 1px solid var(--border-light);
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 999;
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(2rem);
