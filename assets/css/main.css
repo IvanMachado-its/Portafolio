@@ -16,30 +16,32 @@
 13- Scroll-Top Area CSS
 */
 
-
 /*--------------------- 0- Global CSS (Start) ---------------------*/
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root{
-    /* Colores minimalistas dark */
+    /* Colores modificados - más cálidos y elegantes */
     --pure-white: #ffffff;
-    --off-white: #fafafa;
+    --off-white: #f8f9fa;
     --pure-black: #000000;
-    --dark-bg: #0a0a0a;
-    --dark-surface: #111111;
-    --dark-elevated: #1a1a1a;
-    --border-subtle: rgba(255, 255, 255, 0.06);
-    --border-light: rgba(255, 255, 255, 0.1);
-    --text-primary: #ffffff;
-    --text-secondary: rgba(255, 255, 255, 0.6);
-    --text-muted: rgba(255, 255, 255, 0.4);
-    --accent: #ffffff;
-    --shadow-soft: 0 4px 24px rgba(0, 0, 0, 0.4);
-    --shadow-hard: 0 8px 32px rgba(0, 0, 0, 0.6);
+    --dark-bg: #0d1117;
+    --dark-surface: #161b22;
+    --dark-elevated: #21262d;
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-light: rgba(255, 255, 255, 0.15);
+    --text-primary: #f0f6fc;
+    --text-secondary: rgba(240, 246, 252, 0.7);
+    --text-muted: rgba(240, 246, 252, 0.5);
+    --accent: #58a6ff;
+    --accent-secondary: #f85149;
+    --accent-gradient: linear-gradient(135deg, #58a6ff, #8b949e);
+    --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.5);
+    --shadow-hard: 0 16px 48px rgba(0, 0, 0, 0.7);
+    --glow: 0 0 20px rgba(88, 166, 255, 0.3);
 }
 
 *{
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     margin: 0;
@@ -47,15 +49,15 @@
     text-decoration: none;
     border: none;
     outline: none;
-    -webkit-transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-       -moz-transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-         -o-transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+       -moz-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+         -o-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 *::selection{
     color: var(--pure-black);
-    background-color: var(--pure-white);
+    background-color: var(--accent);
 }
 
 html{
@@ -69,8 +71,24 @@ body{
     background-color: var(--dark-bg);
     color: var(--text-primary);
     font-weight: 400;
-    line-height: 1.6;
-    letter-spacing: 0.02em;
+    line-height: 1.7;
+    letter-spacing: 0.01em;
+    position: relative;
+}
+
+/* Patrón de fondo sutil */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(88, 166, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(248, 81, 73, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
 }
 
 section{
@@ -80,11 +98,12 @@ section{
 }
 
 ::-webkit-scrollbar{
-    width: 0.4rem;
+    width: 0.6rem;
 }
 
 ::-webkit-scrollbar-thumb{
-    background-color: var(--text-muted);
+    background: var(--accent);
+    border-radius: 3px;
 }
 
 ::-webkit-scrollbar-track{
@@ -92,8 +111,6 @@ section{
 }
 
 /*--------------------- 0- Global CSS (End) ---------------------*/
-
-
 
 /*--------------------- 1- Heading CSS (Start) ---------------------*/
 .heading{
@@ -103,7 +120,7 @@ section{
 
 .heading h2{
     font-size: 4.2rem;
-    font-weight: 300;
+    font-weight: 200;
     color: var(--text-primary);
     letter-spacing: -0.02em;
     position: relative;
@@ -112,43 +129,47 @@ section{
 
 .heading h2 span{
     font-weight: 600;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     position: relative;
 }
 
 .heading h2::after{
     content: '';
     position: absolute;
-    bottom: -2rem;
+    bottom: -3rem;
     left: 50%;
     transform: translateX(-50%);
-    width: 4rem;
-    height: 0.1rem;
-    background: var(--pure-white);
-    opacity: 0.5;
+    width: 6rem;
+    height: 0.2rem;
+    background: var(--accent-gradient);
+    opacity: 0.8;
+    border-radius: 1px;
 }
 
 /*--------------------- 1- Heading CSS (End) ---------------------*/
-
-
 
 /*--------------------- 2- Button CSS (Start) ---------------------*/
 .btn{
     display: inline-flex;
     align-items: center;
     gap: 1.2rem;
-    padding: 1.6rem 3.2rem;
+    padding: 1.8rem 3.6rem;
     font-size: 1.5rem;
     font-weight: 500;
-    color: var(--pure-black);
-    background-color: var(--pure-white);
-    border: 1px solid var(--pure-white);
-    border-radius: 0;
+    color: var(--pure-white);
+    background: var(--accent-gradient);
+    border: 2px solid transparent;
+    border-radius: 8px;
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    text-transform: capitalize;
+    letter-spacing: 0.05em;
     transition: all 0.3s ease;
+    box-shadow: var(--shadow-soft);
 }
 
 .btn::before{
@@ -158,17 +179,18 @@ section{
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--pure-black);
+    background: linear-gradient(135deg, var(--accent-secondary), #ff7b72);
     transform: translateX(-100%);
-    transition: transform 0.3s ease;
+    transition: transform 0.4s ease;
+}
+
+.btn:hover{
+    transform: translateY(-2px);
+    box-shadow: var(--glow), var(--shadow-hard);
 }
 
 .btn:hover::before{
     transform: translateX(0);
-}
-
-.btn:hover{
-    color: var(--pure-white);
 }
 
 .btn span,
@@ -178,18 +200,22 @@ section{
 }
 
 .btn-outline{
-    background-color: transparent;
-    color: var(--pure-white);
-    border: 1px solid var(--border-light);
+    background: transparent;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+    box-shadow: none;
+}
+
+.btn-outline::before{
+    background: var(--accent);
 }
 
 .btn-outline:hover{
-    border-color: var(--pure-white);
+    color: var(--pure-white);
+    border-color: var(--accent);
 }
 
 /*--------------------- 2- Button CSS (End) ---------------------*/
-
-
 
 /*--------------------- 3- Header Area CSS (Start) ---------------------*/
 header{
@@ -201,25 +227,28 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: transparent;
+    background: rgba(13, 17, 23, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     z-index: 1000;
     transition: all 0.3s ease;
 }
 
 header.sticky{
-    background: rgba(10, 10, 10, 0.95);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(13, 17, 23, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border-subtle);
     padding: 2rem 5%;
+    box-shadow: var(--shadow-soft);
 }
 
 header .logo h2{
-    font-size: 2.2rem;
-    font-weight: 300;
+    font-size: 2.4rem;
+    font-weight: 600;
     color: var(--pure-white);
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    font-family: 'JetBrains Mono', monospace;
 }
 
 header .navbar{
@@ -230,11 +259,10 @@ header .navbar{
 header .navbar a{
     color: var(--text-secondary);
     font-size: 1.4rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    font-weight: 500;
+    padding: 1rem 1.5rem;
     position: relative;
-    padding: 0.5rem 0;
+    border-radius: 6px;
     transition: all 0.3s ease;
 }
 
@@ -242,34 +270,40 @@ header .navbar a::after{
     content: '';
     position: absolute;
     bottom: -0.5rem;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     width: 0;
-    height: 1px;
-    background: var(--pure-white);
+    height: 2px;
+    background: var(--accent-gradient);
     transition: width 0.3s ease;
 }
 
 header .navbar a:hover,
 header .navbar a.active{
     color: var(--pure-white);
+    background: rgba(88, 166, 255, 0.1);
 }
 
 header .navbar a:hover::after,
 header .navbar a.active::after{
-    width: 100%;
+    width: 80%;
 }
 
 header #menu-btn{
-    font-size: 2.2rem;
+    font-size: 2.4rem;
     color: var(--pure-white);
     cursor: pointer;
     display: none;
     padding: 1rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+header #menu-btn:hover{
+    background: rgba(88, 166, 255, 0.1);
 }
 
 /*--------------------- 3- Header Area CSS (End) ---------------------*/
-
-
 
 /*--------------------- 4- Home Area CSS (Start) ---------------------*/
 .home{
@@ -279,18 +313,40 @@ header #menu-btn{
     padding: 0 5%;
     background: var(--dark-bg);
     position: relative;
+    overflow: hidden;
 }
 
 .home::before{
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, rgba(255,255,255,0.02) 0%, transparent 70%);
+    top: 20%;
+    right: -10%;
+    width: 40rem;
+    height: 40rem;
+    background: radial-gradient(circle, rgba(88, 166, 255, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(40px);
     pointer-events: none;
+    animation: float 6s ease-in-out infinite;
+}
+
+.home::after{
+    content: '';
+    position: absolute;
+    bottom: 20%;
+    left: -10%;
+    width: 30rem;
+    height: 30rem;
+    background: radial-gradient(circle, rgba(248, 81, 73, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(30px);
+    pointer-events: none;
+    animation: float 8s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) translateX(0px); }
+    50% { transform: translateY(-20px) translateX(10px); }
 }
 
 .home .box-container{
@@ -307,17 +363,16 @@ header #menu-btn{
 
 .home .content h2{
     font-size: 1.8rem;
-    font-weight: 300;
-    color: var(--text-secondary);
+    font-weight: 400;
+    color: var(--accent);
     margin-bottom: 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
+    font-family: 'JetBrains Mono', monospace;
     opacity: 0;
     animation: fadeInUp 0.8s ease forwards 0.2s;
 }
 
 .home .content h1{
-    font-size: 5.4rem;
+    font-size: 5.8rem;
     font-weight: 700;
     color: var(--pure-white);
     line-height: 1.1;
@@ -329,14 +384,18 @@ header #menu-btn{
 
 .home .content h1 span{
     font-weight: 300;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .home .content p{
-    font-size: 1.7rem;
+    font-size: 1.8rem;
     color: var(--text-secondary);
     line-height: 1.8;
     margin-bottom: 4rem;
-    max-width: 50rem;
+    max-width: 52rem;
     opacity: 0;
     animation: fadeInUp 0.8s ease forwards 0.6s;
 }
@@ -350,15 +409,38 @@ header #menu-btn{
     text-align: center;
     opacity: 0;
     animation: fadeIn 1s ease forwards 1s;
+    position: relative;
+}
+
+.home .image::before{
+    content: '';
+    position: absolute;
+    top: -2rem;
+    left: -2rem;
+    right: -2rem;
+    bottom: -2rem;
+    background: var(--accent-gradient);
+    border-radius: 12px;
+    opacity: 0.1;
+    filter: blur(20px);
+    z-index: -1;
 }
 
 .home .image img{
-    width: 40rem;
-    height: 40rem;
-    border-radius: 0;
+    width: 42rem;
+    height: 42rem;
+    border-radius: 12px;
     object-fit: cover;
-    filter: grayscale(100%) contrast(1.2);
-    border: 1px solid var(--border-subtle);
+    filter: grayscale(20%) contrast(1.1) brightness(0.95);
+    border: 2px solid var(--border-light);
+    box-shadow: var(--shadow-hard);
+    transition: all 0.4s ease;
+}
+
+.home .image:hover img{
+    filter: grayscale(0%) contrast(1.2) brightness(1);
+    transform: scale(1.02);
+    box-shadow: var(--glow), var(--shadow-hard);
 }
 
 @keyframes fadeInUp {
@@ -368,7 +450,969 @@ header #menu-btn{
     }
     from {
         opacity: 0;
-        transform: translateY(2rem);
+        transform: translateY(3rem);
+    }
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+    from { opacity: 0; }
+}
+
+/*--------------------- 4- Home Area CSS (End) ---------------------*/
+
+/*--------------------- 5- About Area CSS (Start) ---------------------*/
+.about .box-container{
+    display: grid;
+    grid-template-columns: 38rem 1fr;
+    gap: 8rem;
+    align-items: start;
+    margin-bottom: 8rem;
+}
+
+.about .image{
+    position: sticky;
+    top: 12rem;
+}
+
+.about .image img{
+    width: 100%;
+    border-radius: 12px;
+    filter: grayscale(15%) contrast(1.1);
+    border: 2px solid var(--border-light);
+    box-shadow: var(--shadow-soft);
+    transition: all 0.4s ease;
+}
+
+.about .image:hover img{
+    filter: grayscale(0%) contrast(1.2);
+    box-shadow: var(--glow), var(--shadow-soft);
+}
+
+.about .content h2{
+    font-size: 3.6rem;
+    font-weight: 300;
+    color: var(--pure-white);
+    margin-bottom: 3rem;
+    letter-spacing: -0.02em;
+}
+
+.about .content > p{
+    font-size: 1.7rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 4rem;
+}
+
+.about .content .about-info{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 5rem;
+}
+
+.about .content .about-info .info h4{
+    font-size: 1.4rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.about .content .about-info .info h4 span{
+    color: var(--pure-white);
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: normal;
+    display: block;
+    margin-top: 0.8rem;
+    font-size: 1.6rem;
+}
+
+.counting{
+    background: var(--dark-surface);
+    border: 2px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 4rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.counting::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent-gradient);
+}
+
+.counting .box{
+    text-align: center;
+}
+
+.counting .box .count{
+    font-size: 5.2rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.counting .box h3{
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.skill-container{
+    margin-top: 10rem;
+}
+
+.skills{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(38rem, 1fr));
+    gap: 4rem;
+}
+
+.skill-item{
+    background: var(--dark-surface);
+    padding: 3.5rem;
+    border-radius: 12px;
+    border: 2px solid var(--border-subtle);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.skill-item::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent-gradient);
+}
+
+.skill-item:hover{
+    border-color: var(--accent);
+    transform: translateY(-5px);
+    box-shadow: var(--glow), var(--shadow-soft);
+}
+
+.skill-item .box{
+    margin-bottom: 3rem;
+}
+
+.skill-item .box:last-child{
+    margin-bottom: 0;
+}
+
+.skill-item .box h3{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.skill-item .box h3 span{
+    color: var(--accent);
+    font-weight: 600;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.skill-item .box .progress-bar{
+    width: 100%;
+    height: 0.4rem;
+    background: var(--border-subtle);
+    overflow: hidden;
+    position: relative;
+    border-radius: 2px;
+}
+
+.skill-item .box .progress-bar span{
+    display: block;
+    height: 100%;
+    background: var(--accent-gradient);
+    border-radius: 2px;
+    position: relative;
+}
+
+.skill-item .box .progress-bar span::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-image: linear-gradient(
+        -45deg,
+        rgba(255, 255, 255, .2) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255, 255, 255, .2) 50%,
+        rgba(255, 255, 255, .2) 75%,
+        transparent 75%,
+        transparent
+    );
+    z-index: 1;
+    background-size: 50px 50px;
+    animation: move 2s linear infinite;
+}
+
+@keyframes move {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 50px 50px;
+    }
+}
+
+/*--------------------- 5- About Area CSS (End) ---------------------*/
+
+/*--------------------- 6- Qualification Area CSS (Start) ---------------------*/
+.qualification .box-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8rem;
+}
+
+.education, .experience{
+    position: relative;
+}
+
+.education::before, .experience::before{
+    content: '';
+    position: absolute;
+    left: 2rem;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: var(--accent-gradient);
+    border-radius: 1px;
+}
+
+.experience-item{
+    position: relative;
+    margin-left: 6rem;
+    margin-bottom: 4rem;
+    background: var(--dark-surface);
+    padding: 3.5rem;
+    border-radius: 12px;
+    border: 2px solid var(--border-subtle);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.experience-item::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent-gradient);
+}
+
+.experience-item:hover{
+    border-color: var(--accent);
+    transform: translateX(1rem);
+    box-shadow: var(--glow), var(--shadow-soft);
+}
+
+.experience-item i{
+    position: absolute;
+    left: -6.8rem;
+    top: 3.5rem;
+    width: 4.5rem;
+    height: 4.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: var(--pure-white);
+    background: var(--accent-gradient);
+    border-radius: 50%;
+    box-shadow: var(--shadow-soft);
+}
+
+.experience-item span{
+    color: var(--accent);
+    font-size: 1.4rem;
+    display: inline-block;
+    margin-bottom: 2rem;
+    font-weight: 500;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.experience-item h3{
+    font-size: 2.2rem;
+    color: var(--pure-white);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.experience-item p{
+    color: var(--text-secondary);
+    font-size: 1.6rem;
+    line-height: 1.8;
+}
+
+/*--------------------- 6- Qualification Area CSS (End) ---------------------*/
+
+/*--------------------- 7- Services Area CSS (Start) ---------------------*/
+.service .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+    gap: 3rem;
+}
+
+.service-item{
+    background: var(--dark-surface);
+    padding: 4rem 3.5rem;
+    text-align: center;
+    border-radius: 16px;
+    border: 2px solid var(--border-subtle);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-item::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--accent-gradient);
+}
+
+.service-item::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(88, 166, 255, 0.1) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    transition: all 0.4s ease;
+    border-radius: 50%;
+}
+
+.service-item:hover{
+    border-color: var(--accent);
+    transform: translateY(-1rem) scale(1.02);
+    box-shadow: var(--glow), var(--shadow-hard);
+}
+
+.service-item:hover::after{
+    width: 100%;
+    height: 100%;
+}
+
+.service-item i{
+    color: var(--accent);
+    font-size: 3.6rem;
+    margin-bottom: 2.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.service-item:hover i{
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 10px var(--accent));
+}
+
+.service-item h3{
+    font-size: 2.2rem;
+    color: var(--pure-white);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    position: relative;
+    z-index: 2;
+}
+
+.service-item p{
+    font-size: 1.6rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    position: relative;
+    z-index: 2;
+}
+
+/*--------------------- 7- Services Area CSS (End) ---------------------*/
+
+/*--------------------- 8- Portfolio Area CSS (Start) ---------------------*/
+.controls{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 5rem;
+    list-style: none;
+}
+
+.controls .button{
+    padding: 1.2rem 2.8rem;
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    background: var(--dark-surface);
+    border: 2px solid var(--border-subtle);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+}
+
+.controls .button::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--accent-gradient);
+    transition: left 0.3s ease;
+}
+
+.controls .button:hover,
+.controls .button.active{
+    color: var(--pure-white);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.controls .button:hover::before,
+.controls .button.active::before{
+    left: 0;
+}
+
+.controls .button span{
+    position: relative;
+    z-index: 2;
+}
+
+.portfolio .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(38rem, 1fr));
+    gap: 3rem;
+}
+
+.portfolio-item{
+    height: 32rem;
+    overflow: hidden;
+    position: relative;
+    background: var(--dark-surface);
+    border-radius: 12px;
+    border: 2px solid var(--border-subtle);
+    transition: all 0.4s ease;
+}
+
+.portfolio-item:hover{
+    border-color: var(--accent);
+    transform: translateY(-5px);
+    box-shadow: var(--glow), var(--shadow-hard);
+}
+
+.portfolio-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(30%) contrast(1.1);
+    transition: all 0.5s ease;
+}
+
+.portfolio-item:hover img{
+    filter: grayscale(0%) contrast(1.2);
+    transform: scale(1.1);
+}
+
+.portfolio-item .content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(13, 17, 23, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 3rem;
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.portfolio-item:hover .content{
+    opacity: 1;
+}
+
+.portfolio-item .content h4{
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: var(--pure-white);
+    margin-bottom: 1.5rem;
+    transform: translateY(2rem);
+    transition: all 0.4s ease 0.1s;
+}
+
+.portfolio-item .content p{
+    font-size: 1.6rem;
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+    transform: translateY(2rem);
+    transition: all 0.4s ease 0.2s;
+}
+
+.portfolio-item:hover .content h4,
+.portfolio-item:hover .content p{
+    transform: translateY(0);
+}
+
+/*--------------------- 8- Portfolio Area CSS (End) ---------------------*/
+
+/*--------------------- 9- Testimonials Area CSS (Start) ---------------------*/
+.testimonial-slider{
+    position: relative;
+    padding-bottom: 6rem;
+}
+
+.testi-item{
+    background: var(--dark-surface);
+    border: 2px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 4rem 3.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.testi-item::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--accent-gradient);
+}
+
+.testi-item:hover{
+    border-color: var(--accent);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-soft);
+}
+
+.testi-item img{
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    margin-bottom: 3rem;
+    filter: grayscale(20%);
+    border: 3px solid var(--border-light);
+    transition: all 0.3s ease;
+}
+
+.testi-item:hover img{
+    filter: grayscale(0%);
+    border-color: var(--accent);
+}
+
+.testi-item .fa-quote-left{
+    font-size: 2.4rem;
+    color: var(--accent);
+    margin-bottom: 2rem;
+    opacity: 0.7;
+}
+
+.testi-item p{
+    color: var(--text-secondary);
+    font-size: 1.6rem;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    font-style: italic;
+}
+
+.testi-item .intro h3{
+    font-size: 1.9rem;
+    color: var(--pure-white);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.testi-item .intro h5{
+    color: var(--accent);
+    font-size: 1.4rem;
+    font-weight: 500;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/*--------------------- 9- Testimonials Area CSS (End) ---------------------*/
+
+/*--------------------- 10- Blog Area CSS (Start) ---------------------*/
+.blog-slider{
+    position: relative;
+    padding-bottom: 6rem;
+}
+
+.blog-item{
+    background: var(--dark-surface);
+    border: 2px solid var(--border-subtle);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.blog-item::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--accent-gradient);
+    z-index: 2;
+}
+
+.blog-item:hover{
+    border-color: var(--accent);
+    transform: translateY(-5px);
+    box-shadow: var(--glow), var(--shadow-soft);
+}
+
+.blog-item .image{
+    height: 24rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.blog-item .image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(20%) contrast(1.1);
+    transition: all 0.5s ease;
+}
+
+.blog-item:hover .image img{
+    filter: grayscale(0%) contrast(1.2);
+    transform: scale(1.1);
+}
+
+.blog-item .content{
+    padding: 3.5rem;
+}
+
+.blog-item .content .intro{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.blog-item .content .intro h5{
+    font-size: 1.3rem;
+    color: var(--accent);
+    font-weight: 500;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.blog-item .content .main-heading{
+    font-size: 2.1rem;
+    font-weight: 600;
+    color: var(--pure-white);
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+    transition: all 0.3s ease;
+}
+
+.blog-item:hover .content .main-heading{
+    color: var(--accent);
+}
+
+.blog-item p{
+    color: var(--text-secondary);
+    font-size: 1.6rem;
+    line-height: 1.8;
+}
+
+/*--------------------- 10- Blog Area CSS (End) ---------------------*/
+
+/*--------------------- 11- Contact Area CSS (Start) ---------------------*/
+.contact .box-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8rem;
+    align-items: start;
+}
+
+.contact-info h3{
+    font-size: 3rem;
+    color: var(--pure-white);
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.contact-info > p{
+    font-size: 1.7rem;
+    color: var(--text-secondary);
+    margin-bottom: 4rem;
+    line-height: 1.8;
+}
+
+.contact-info .info-item{
+    margin-bottom: 3rem;
+    padding: 3rem;
+    background: var(--dark-surface);
+    border: 2px solid var(--border-subtle);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-info .info-item::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent-gradient);
+}
+
+.contact-info .info-item:hover{
+    border-color: var(--accent);
+    transform: translateX(5px);
+    box-shadow: var(--shadow-soft);
+}
+
+.contact-info .info-item h4{
+    font-size: 1.5rem;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.contact-info .info-item .detail{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.contact-info .info-item .detail .fas,
+.contact-info .info-item .detail .fab{
+    width: 4.5rem;
+    height: 4.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: var(--pure-white);
+    background: var(--accent-gradient);
+    border-radius: 8px;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-soft);
+}
+
+.contact-info .info-item .detail p{
+    font-size: 1.6rem;
+    color: var(--pure-white);
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+.contact-form{
+    background: var(--dark-surface);
+    padding: 4.5rem;
+    border: 2px solid var(--border-subtle);
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-form::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--accent-gradient);
+}
+
+.contact-form .box{
+    width: 100%;
+    color: var(--pure-white);
+    font-size: 1.6rem;
+    background: var(--dark-bg);
+    border: 2px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 1.8rem 2rem;
+    margin-bottom: 3rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.contact-form .box:focus{
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.1);
+}
+
+.contact-form .box::placeholder{
+    color: var(--text-muted);
+    font-size: 1.5rem;
+}
+
+.contact-form textarea{
+    height: 14rem;
+    resize: vertical;
+    font-family: inherit;
+}
+
+.contact .alert{
+    font-size: 1.6rem;
+    color: var(--pure-white);
+    margin-top: 2rem;
+    padding: 2rem;
+    background: var(--dark-bg);
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+}
+
+/*--------------------- 11- Contact Area CSS (End) ---------------------*/
+
+/*--------------------- 12- Footer Area CSS (Start) ---------------------*/
+footer{
+    background: var(--dark-surface);
+    padding: 6rem 0;
+    text-align: center;
+    border-top: 2px solid var(--border-subtle);
+    margin-top: 10rem;
+    position: relative;
+}
+
+footer::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent-gradient);
+}
+
+footer .social{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+footer .social .fab{
+    width: 5rem;
+    height: 5rem;
+    background: var(--dark-bg);
+    border: 2px solid var(--border-subtle);
+    border-radius: 12px;
+    color: var(--text-secondary);
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+footer .social .fab::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--accent-gradient);
+    transition: left 0.3s ease;
+}
+
+footer .social .fab:hover{
+    border-color: var(--accent);
+    color: var(--pure-white);
+    transform: translateY(-5px);
+    box-shadow: var(--glow), var(--shadow-soft);
+}
+
+footer .social .fab:hover::before{
+    left: 0;
+}
+
+footer .social .fab i{
+    position: relative;
+    z-index: 2;
+}
+
+footer .content p{
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+}
+
+footer .content p span{
+    color: var(--accent);
+    font-weight: 600;
+}
+
+/*--------------------- 12- Footer Area CSS (End) ---------------------*/
+
+/*--------------------- 13- Scroll-Top Area CSS (Start) ---------------------*/
+.scroll-top{
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+    width: 5.5rem;
+    height: 5.5rem;
+    background: var(--accent-gradient);
+    color: var(--pure-white);
+    border: none;
+    border-radius: 12px;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 999;
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(2rem);
+    box-shadow: var(--shadow-soft);
 }
 
 .scroll-top.active{
@@ -378,14 +1422,11 @@ header #menu-btn{
 }
 
 .scroll-top:hover{
-    background: var(--pure-white);
-    color: var(--pure-black);
-    border-color: var(--pure-white);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: var(--glow), var(--shadow-hard);
 }
 
 /*--------------------- 13- Scroll-Top Area CSS (End) ---------------------*/
-
-
 
 /*--------------------- Responsive Design (Start) ---------------------*/
 @media (max-width: 1200px){
@@ -410,7 +1451,7 @@ header #menu-btn{
     }
     
     .home .content h1{
-        font-size: 4.5rem;
+        font-size: 4.8rem;
     }
     
     .about .box-container{
@@ -445,19 +1486,20 @@ header #menu-btn{
     
     header .navbar{
         position: fixed;
-        top: 7rem;
+        top: 8rem;
         right: -100%;
-        width: 30rem;
-        height: calc(100vh - 7rem);
+        width: 35rem;
+        height: calc(100vh - 8rem);
         background: var(--dark-surface);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border-left: 1px solid var(--border-subtle);
-        padding: 3rem 2rem;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-left: 2px solid var(--border-subtle);
+        padding: 4rem 3rem;
         flex-direction: column;
         align-items: flex-start;
-        gap: 2rem;
+        gap: 3rem;
         transition: right 0.3s ease;
+        box-shadow: var(--shadow-hard);
     }
     
     header .navbar.active{
@@ -466,10 +1508,11 @@ header #menu-btn{
     
     header .navbar a{
         color: var(--text-primary);
-        font-size: 1.6rem;
+        font-size: 1.8rem;
         width: 100%;
-        padding: 1.5rem 0;
+        padding: 2rem 0;
         border-bottom: 1px solid var(--border-subtle);
+        border-radius: 0;
     }
     
     header .navbar a:last-child{
@@ -481,7 +1524,7 @@ header #menu-btn{
     }
     
     .home .content h1{
-        font-size: 4rem;
+        font-size: 4.2rem;
     }
     
     .skills{
@@ -495,7 +1538,7 @@ header #menu-btn{
     
     .portfolio .box-container{
         grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-        gap: 1.5rem;
+        gap: 2rem;
     }
 }
 
@@ -515,23 +1558,23 @@ header #menu-btn{
     header .navbar{
         width: 100%;
         right: -100%;
-        top: 6.5rem;
+        top: 7rem;
         border-left: none;
-        border-top: 1px solid var(--border-subtle);
+        border-top: 2px solid var(--border-subtle);
     }
     
     .home .content h1{
-        font-size: 3.5rem;
-        line-height: 1.3;
+        font-size: 3.8rem;
+        line-height: 1.2;
     }
     
     .home .content p{
-        font-size: 1.5rem;
+        font-size: 1.6rem;
     }
     
     .home .image img{
-        width: 30rem;
-        height: 30rem;
+        width: 32rem;
+        height: 32rem;
     }
     
     .about .content .about-info{
@@ -548,900 +1591,130 @@ header #menu-btn{
     }
     
     .contact-form{
-        padding: 2.5rem;
+        padding: 3rem;
     }
     
     .experience-item{
         margin-left: 4rem;
-        padding: 2rem;
+        padding: 2.5rem;
     }
     
     .experience-item i{
-        left: -4.5rem;
-        width: 3rem;
-        height: 3rem;
-        font-size: 1.4rem;
+        left: -4.8rem;
+        width: 3.5rem;
+        height: 3.5rem;
+        font-size: 1.6rem;
     }
     
     .btn{
-        padding: 1.4rem 2.8rem;
-        font-size: 1.3rem;
+        padding: 1.6rem 3rem;
+        font-size: 1.4rem;
     }
 }
 
 /*--------------------- Responsive Design (End) ---------------------*/
 
+/*--------------------- Modern Enhancements (Start) ---------------------*/
 
-
-/*--------------------- Modern Minimal Enhancements (Start) ---------------------*/
-
-/* Animaciones sutiles */
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateX(-2rem);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+/* Glow effects */
+.glow-on-hover {
+    transition: all 0.3s ease;
 }
 
-@keyframes fadeInSlow {
-    from { opacity: 0; }
-    to { opacity: 1; }
+.glow-on-hover:hover {
+    box-shadow: var(--glow);
 }
 
-/* Loading state minimalista */
-.loading {
-    opacity: 0.3;
+/* Typing animation */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
 }
 
-/* Smooth scrolling mejorado */
-@media (prefers-reduced-motion: no-preference) {
-    html {
-        scroll-behavior: smooth;
-    }
-    
-    * {
-        animation-duration: 0.4s !important;
-    }
+@keyframes blink {
+    50% { border-color: transparent; }
 }
 
-/* Focus minimalista */
-*:focus-visible {
-    outline: 1px solid var(--pure-white);
-    outline-offset: 0.3rem;
+/* Floating animations */
+@keyframes floatSlow {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
 }
 
-/* Selection personalizada */
-::selection {
-    background: var(--pure-white);
-    color: var(--pure-black);
+.float-animation {
+    animation: floatSlow 4s ease-in-out infinite;
 }
 
-::-moz-selection {
-    background: var(--pure-white);
-    color: var(--pure-black);
-}
-
-/* Hover states globales */
-a, button {
-    position: relative;
-}
-
-/* Text gradient sutil */
+/* Gradient text utility */
 .gradient-text {
-    background: linear-gradient(90deg, var(--pure-white) 0%, var(--text-secondary) 100%);
-    background-clip: text;
+    background: var(--accent-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-/* Efecto de hover minimalista para cards */
-.service-item::before,
-.portfolio-item::before,
-.experience-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, transparent, rgba(255,255,255,0.03));
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-}
-
-.service-item:hover::before,
-.portfolio-item:hover::before,
-.experience-item:hover::before {
-    opacity: 1;
-}
-
-/* Micro-interacciones */
-.btn, 
-.controls .button, 
-footer .social .fab,
-.scroll-top {
-    transform-style: preserve-3d;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Estados de carga elegantes */
-input:disabled,
-textarea:disabled,
-button:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-}
-
-/* Scrollbar minimalista */
+/* Custom scrollbar for webkit browsers */
 ::-webkit-scrollbar {
-    width: 0.2rem;
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--text-muted);
-    border-radius: 0;
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: transparent;
+    background: var(--dark-surface);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-gradient);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
+
+/* Focus states */
+*:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* Loading states */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
 }
 
 /* Print styles */
 @media print {
     body {
-        background: white;
-        color: black;
+        background: white !important;
+        color: black !important;
     }
     
-    header, 
-    footer, 
-    .scroll-top {
-        display: none;
+    header, footer, .scroll-top {
+        display: none !important;
     }
 }
 
-/* Accesibilidad mejorada */
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* High contrast mode */
 @media (prefers-contrast: high) {
     :root {
-        --border-subtle: rgba(255, 255, 255, 0.2);
-        --text-secondary: rgba(255, 255, 255, 0.8);
+        --border-subtle: rgba(255, 255, 255, 0.3);
+        --border-light: rgba(255, 255, 255, 0.5);
+        --text-secondary: rgba(240, 246, 252, 0.9);
     }
 }
 
-/* Dark mode explícito (ya aplicado por defecto) */
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: var(--dark-bg);
-    }
-}
-
-/* Optimización de rendimiento */
-.home .image img,
-.about .image img,
-.portfolio-item img,
-.blog-item .image img {
-    will-change: transform, filter;
-}
-
-/* Transiciones GPU aceleradas */
-.btn,
-.service-item,
-.portfolio-item,
-.experience-item {
-    transform: translateZ(0);
-    backface-visibility: hidden;
-}
-
-/*--------------------- Modern Minimal Enhancements (End) ---------------------*/
-    }
-}
-
-@keyframes fadeIn {
-    to { opacity: 1; }
-    from { opacity: 0; }
-}
-
-/*--------------------- 4- Home Area CSS (End) ---------------------*/
-
-
-
-/*--------------------- 5- About Area CSS (Start) ---------------------*/
-.about .box-container{
-    display: grid;
-    grid-template-columns: 35rem 1fr;
-    gap: 8rem;
-    align-items: start;
-    margin-bottom: 8rem;
-}
-
-.about .image{
-    position: sticky;
-    top: 12rem;
-}
-
-.about .image img{
-    width: 100%;
-    border-radius: 0;
-    filter: grayscale(100%) contrast(1.2);
-    border: 1px solid var(--border-subtle);
-}
-
-.about .content h2{
-    font-size: 3.2rem;
-    font-weight: 300;
-    color: var(--pure-white);
-    margin-bottom: 3rem;
-    letter-spacing: -0.02em;
-}
-
-.about .content > p{
-    font-size: 1.6rem;
-    color: var(--text-secondary);
-    line-height: 1.8;
-    margin-bottom: 4rem;
-}
-
-.about .content .about-info{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    margin-bottom: 5rem;
-}
-
-.about .content .about-info .info h4{
-    font-size: 1.4rem;
-    color: var(--text-secondary);
-    margin-bottom: 0.8rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-}
-
-.about .content .about-info .info h4 span{
-    color: var(--pure-white);
-    font-weight: 500;
-    text-transform: none;
-    letter-spacing: normal;
-    display: block;
-    margin-top: 0.5rem;
-}
-
-.counting{
-    background: transparent;
-    border: 1px solid var(--border-subtle);
-    padding: 4rem;
-}
-
-.counting .box{
-    text-align: center;
-}
-
-.counting .box .count{
-    font-size: 4.8rem;
-    font-weight: 200;
-    color: var(--pure-white);
-    margin-bottom: 1rem;
-    display: block;
-}
-
-.counting .box h3{
-    font-size: 1.4rem;
-    color: var(--text-secondary);
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-}
-
-.skill-container{
-    margin-top: 10rem;
-}
-
-.skills{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
-    gap: 4rem;
-}
-
-.skill-item{
-    background: transparent;
-    padding: 3rem;
-    border: 1px solid var(--border-subtle);
-}
-
-.skill-item .box{
-    margin-bottom: 3rem;
-}
-
-.skill-item .box:last-child{
-    margin-bottom: 0;
-}
-
-.skill-item .box h3{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-    font-size: 1.4rem;
-    color: var(--text-secondary);
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-}
-
-.skill-item .box h3 span{
-    color: var(--pure-white);
-    font-weight: 500;
-}
-
-.skill-item .box .progress-bar{
-    width: 100%;
-    height: 0.2rem;
-    background: var(--border-subtle);
-    overflow: hidden;
-    position: relative;
-}
-
-.skill-item .box .progress-bar span{
-    display: block;
-    height: 100%;
-    background: var(--pure-white);
-}
-
-/*--------------------- 5- About Area CSS (End) ---------------------*/
-
-
-
-/*--------------------- 6- Qualification Area CSS (Start) ---------------------*/
-.qualification .box-container{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8rem;
-}
-
-.education, .experience{
-    position: relative;
-}
-
-.education::before, .experience::before{
-    content: '';
-    position: absolute;
-    left: 2rem;
-    top: 0;
-    height: 100%;
-    width: 1px;
-    background: var(--border-subtle);
-}
-
-.experience-item{
-    position: relative;
-    margin-left: 6rem;
-    margin-bottom: 4rem;
-    background: transparent;
-    padding: 3rem;
-    border: 1px solid var(--border-subtle);
-    transition: all 0.3s ease;
-}
-
-.experience-item:hover{
-    border-color: var(--border-light);
-    transform: translateX(0.5rem);
-}
-
-.experience-item i{
-    position: absolute;
-    left: -6.5rem;
-    top: 3rem;
-    width: 4rem;
-    height: 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.6rem;
-    color: var(--pure-white);
-    background: var(--dark-bg);
-    border: 1px solid var(--border-light);
-}
-
-.experience-item span{
-    color: var(--text-secondary);
-    font-size: 1.3rem;
-    display: inline-block;
-    margin-bottom: 2rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-}
-
-.experience-item h3{
-    font-size: 2rem;
-    color: var(--pure-white);
-    margin-bottom: 1.5rem;
-    font-weight: 500;
-    letter-spacing: -0.01em;
-}
-
-.experience-item p{
-    color: var(--text-secondary);
-    font-size: 1.5rem;
-    line-height: 1.8;
-}
-
-/*--------------------- 6- Qualification Area CSS (End) ---------------------*/
-
-
-
-/*--------------------- 7- Services Area CSS (Start) ---------------------*/
-.service .box-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-    gap: 3rem;
-}
-
-.service-item{
-    background: transparent;
-    padding: 5rem 3rem;
-    text-align: center;
-    border: 1px solid var(--border-subtle);
-    transition: all 0.4s ease;
-    position: relative;
-}
-
-.service-item:hover{
-    border-color: var(--border-light);
-    transform: translateY(-0.5rem);
-}
-
-.service-item i{
-    color: var(--pure-white);
-    font-size: 3.2rem;
-    margin-bottom: 2.5rem;
-    opacity: 0.8;
-}
-
-.service-item h3{
-    font-size: 2rem;
-    color: var(--pure-white);
-    margin-bottom: 1.5rem;
-    font-weight: 500;
-    letter-spacing: -0.01em;
-}
-
-.service-item p{
-    font-size: 1.5rem;
-    color: var(--text-secondary);
-    line-height: 1.8;
-}
-
-/*--------------------- 7- Services Area CSS (End) ---------------------*/
-
-
-
-/*--------------------- 8- Portfolio Area CSS (Start) ---------------------*/
-.controls{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 2rem;
-    margin-bottom: 5rem;
-    list-style: none;
-}
-
-.controls .button{
-    padding: 1rem 2.5rem;
-    font-size: 1.4rem;
-    color: var(--text-secondary);
-    background: transparent;
-    border: 1px solid var(--border-subtle);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-}
-
-.controls .button:hover,
-.controls .button.active{
-    color: var(--pure-white);
-    border-color: var(--pure-white);
-}
-
-.portfolio .box-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
-    gap: 2rem;
-}
-
-.portfolio-item{
-    height: 30rem;
-    overflow: hidden;
-    position: relative;
-    background: var(--dark-surface);
-}
-
-.portfolio-item img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(100%) contrast(1.2);
-    transition: all 0.5s ease;
-}
-
-.portfolio-item:hover img{
-    filter: grayscale(0%);
-    transform: scale(1.05);
-}
-
-.portfolio-item .content{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.95);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 3rem;
-    opacity: 0;
-    transition: all 0.4s ease;
-}
-
-.portfolio-item:hover .content{
-    opacity: 1;
-}
-
-.portfolio-item .content h4{
-    font-size: 2.2rem;
-    font-weight: 500;
-    color: var(--pure-white);
-    margin-bottom: 1rem;
-    transform: translateY(1rem);
-    transition: all 0.4s ease 0.1s;
-}
-
-.portfolio-item .content p{
-    font-size: 1.5rem;
-    color: var(--text-secondary);
-    margin-bottom: 2.5rem;
-    transform: translateY(1rem);
-    transition: all 0.4s ease 0.2s;
-}
-
-.portfolio-item:hover .content h4,
-.portfolio-item:hover .content p{
-    transform: translateY(0);
-}
-
-/*--------------------- 8- Portfolio Area CSS (End) ---------------------*/
-
-
-
-/*--------------------- 9- Testimonials Area CSS (Start) ---------------------*/
-.testimonial-slider{
-    position: relative;
-    padding-bottom: 6rem;
-}
-
-.testi-item{
-    background: transparent;
-    border: 1px solid var(--border-subtle);
-    padding: 5rem 3rem;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.testi-item:hover{
-    border-color: var(--border-light);
-}
-
-.testi-item img{
-    width: 7rem;
-    height: 7rem;
-    border-radius: 50%;
-    margin-bottom: 3rem;
-    filter: grayscale(100%);
-    border: 1px solid var(--border-subtle);
-}
-
-.testi-item .fa-quote-left{
-    font-size: 2rem;
-    color: var(--text-muted);
-    margin-bottom: 2rem;
-}
-
-.testi-item p{
-    color: var(--text-secondary);
-    font-size: 1.5rem;
-    line-height: 1.8;
-    margin-bottom: 3rem;
-    font-style: italic;
-}
-
-.testi-item .intro h3{
-    font-size: 1.8rem;
-    color: var(--pure-white);
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-}
-
-.testi-item .intro h5{
-    color: var(--text-muted);
-    font-size: 1.3rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-}
-
-/*--------------------- 9- Testimonials Area CSS (End) ---------------------*/
-
-
-
-/*--------------------- 10- Blog Area CSS (Start) ---------------------*/
-.blog-slider{
-    position: relative;
-    padding-bottom: 6rem;
-}
-
-.blog-item{
-    background: transparent;
-    border: 1px solid var(--border-subtle);
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-.blog-item:hover{
-    border-color: var(--border-light);
-}
-
-.blog-item .image{
-    height: 22rem;
-    overflow: hidden;
-    position: relative;
-}
-
-.blog-item .image img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(100%) contrast(1.2);
-    transition: all 0.5s ease;
-}
-
-.blog-item:hover .image img{
-    filter: grayscale(0%);
-    transform: scale(1.05);
-}
-
-.blog-item .content{
-    padding: 3rem;
-}
-
-.blog-item .content .intro{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid var(--border-subtle);
-    padding-bottom: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.blog-item .content .intro h5{
-    font-size: 1.3rem;
-    color: var(--text-muted);
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-}
-
-.blog-item .content .main-heading{
-    font-size: 1.9rem;
-    font-weight: 500;
-    color: var(--pure-white);
-    margin-bottom: 1.5rem;
-    line-height: 1.4;
-}
-
-.blog-item p{
-    color: var(--text-secondary);
-    font-size: 1.5rem;
-    line-height: 1.8;
-}
-
-/*--------------------- 10- Blog Area CSS (End) ---------------------*/
-
-
-
-/*--------------------- 11- Contact Area CSS (Start) ---------------------*/
-.contact .box-container{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8rem;
-    align-items: start;
-}
-
-.contact-info h3{
-    font-size: 2.8rem;
-    color: var(--pure-white);
-    margin-bottom: 2rem;
-    font-weight: 300;
-}
-
-.contact-info > p{
-    font-size: 1.6rem;
-    color: var(--text-secondary);
-    margin-bottom: 4rem;
-    line-height: 1.8;
-}
-
-.contact-info .info-item{
-    margin-bottom: 3rem;
-    padding: 2.5rem;
-    background: transparent;
-    border: 1px solid var(--border-subtle);
-    transition: all 0.3s ease;
-}
-
-.contact-info .info-item:hover{
-    border-color: var(--border-light);
-}
-
-.contact-info .info-item h4{
-    font-size: 1.4rem;
-    color: var(--text-secondary);
-    margin-bottom: 1.5rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-}
-
-.contact-info .info-item .detail{
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-}
-
-.contact-info .info-item .detail .fas,
-.contact-info .info-item .detail .fab{
-    width: 4rem;
-    height: 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.6rem;
-    color: var(--pure-white);
-    border: 1px solid var(--border-light);
-    flex-shrink: 0;
-}
-
-.contact-info .info-item .detail p{
-    font-size: 1.5rem;
-    color: var(--pure-white);
-    line-height: 1.6;
-}
-
-.contact-form{
-    background: transparent;
-    padding: 4rem;
-    border: 1px solid var(--border-subtle);
-}
-
-.contact-form .box{
-    width: 100%;
-    color: var(--pure-white);
-    font-size: 1.5rem;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid var(--border-subtle);
-    padding: 1.8rem 0;
-    margin-bottom: 3rem;
-    transition: all 0.3s ease;
-    font-family: inherit;
-}
-
-.contact-form .box:focus{
-    border-color: var(--pure-white);
-}
-
-.contact-form .box::placeholder{
-    color: var(--text-muted);
-    font-size: 1.4rem;
-}
-
-.contact-form textarea{
-    height: 12rem;
-    resize: none;
-    font-family: inherit;
-}
-
-.contact .alert{
-    font-size: 1.5rem;
-    color: var(--pure-white);
-    margin-top: 2rem;
-    padding: 1.5rem;
-    background: transparent;
-    border: 1px solid var(--border-light);
-}
-
-/*--------------------- 11- Contact Area CSS (End) ---------------------*/
-
-
-
-/*--------------------- 12- Footer Area CSS (Start) ---------------------*/
-footer{
-    background: transparent;
-    padding: 6rem 0;
-    text-align: center;
-    border-top: 1px solid var(--border-subtle);
-    margin-top: 10rem;
-}
-
-footer .social{
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    margin-bottom: 4rem;
-}
-
-footer .social .fab{
-    width: 4.5rem;
-    height: 4.5rem;
-    background: transparent;
-    border: 1px solid var(--border-subtle);
-    color: var(--text-secondary);
-    font-size: 1.8rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-
-footer .social .fab:hover{
-    border-color: var(--pure-white);
-    color: var(--pure-white);
-    transform: translateY(-0.3rem);
-}
-
-footer .content p{
-    font-size: 1.4rem;
-    color: var(--text-secondary);
-    font-weight: 300;
-    letter-spacing: 0.05em;
-}
-
-footer .content p span{
-    color: var(--pure-white);
-    font-weight: 400;
-}
-
-/*--------------------- 12- Footer Area CSS (End) ---------------------*/
-
-
-
-/*--------------------- 13- Scroll-Top Area CSS (Start) ---------------------*/
-.scroll-top{
-    position: fixed;
-    bottom: 3rem;
-    right: 3rem;
-    width: 5rem;
-    height: 5rem;
-    background: transparent;
-    color: var(--pure-white);
-    border: 1px solid var(--border-light);
-    font-size: 1.8rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 999;
-    transition: all 0.3s ease;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(2rem);
+/*--------------------- Modern Enhancements (End) ---------------------*/
