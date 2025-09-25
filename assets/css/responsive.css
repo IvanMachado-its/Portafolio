@@ -1,77 +1,210 @@
-/*--------------------- Responsive ---------------------*/
+/* =========================
+   responsive.css (completo)
+   ========================= */
 
-/* Tablets */
-@media (max-width: 991px) {
-  html {
-    font-size: 55%;
-  }
-
-  .home {
-    text-align: center;
-  }
-
-  .about {
-    text-align: center;
-  }
-
-  .services .box-container,
-  .portfolio .box-container {
-    grid-template-columns: 1fr 1fr;
-  }
+/* -------------------------
+   Global responsive tweaks
+   ------------------------- */
+@media (max-width: 1200px) {
+  html { font-size: 58%; }
+  section { padding: 4.5rem 6%; }
 }
 
-/* Móviles medianos */
-@media (max-width: 768px) {
-  header #menu-btn {
-    display: block;
+/* -------------------------
+   Large tablets / small desktops
+   ------------------------- */
+@media (max-width: 991px) {
+  html { font-size: 55%; }
+
+  /* Home / About / Qualification / Contact layout -> single column */
+  .home .box-container,
+  .about .box-container,
+  .qualification .box-container,
+  .contact .box-container {
+    flex-direction: column;
+    display: flex;
+    gap: 2.5rem;
+    text-align: center;
+    align-items: center;
   }
 
-  .header .navbar {
-    width: 25rem;
-    position: absolute;
+  /* Make image in home smaller and centered */
+  .home .image img {
+    max-width: 320px;
+    height: auto;
+    border-radius: 50%;
+  }
+
+  /* Headings and main hero sizes */
+  .home .content .text h1 { font-size: 2.6rem; }
+  .home .content .text h2 { font-size: 1.8rem; }
+
+  /* About text & boxes */
+  .about .content p,
+  .home .content .text p {
+    max-width: 100%;
+    font-size: 1.05rem;
+  }
+
+  /* Skill columns -> stack */
+  .skill-container .skills {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  /* Qualification boxes spacing */
+  .qualification .experience-item { width: 100%; justify-content: flex-start; }
+}
+
+/* -------------------------
+   Tablets / Mobile landscape
+   ------------------------- */
+@media (max-width: 768px) {
+  html { font-size: 52%; }
+
+  /* Show hamburger */
+  #menu-btn { display: block; color: #fff; cursor: pointer; }
+
+  /* Navbar panel (slide from right) */
+  header .navbar {
+    position: fixed;
+    top: 68px; /* below header */
     right: 0;
-    top: 100%;
-    background: var(--bg-color);
-    border-left: 1px solid var(--border);
-    transform: translateX(100%);
-    transition: 0.3s ease;
-    height: calc(100vh - 6rem);
+    transform: translateX(110%);
+    width: 320px;
+    height: calc(100vh - 68px);
+    background: #000;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    z-index: 2000;
+    transition: transform 0.32s cubic-bezier(.2,.9,.3,1);
+    -webkit-overflow-scrolling: touch;
+    border-left: 1px solid rgba(255,255,255,0.06);
     overflow-y: auto;
   }
 
-  .header .navbar.active {
-    transform: translateX(0);
-  }
+  /* When menu active (JS should toggle "active" on .navbar) */
+  header .navbar.active { transform: translateX(0); }
 
-  .header .navbar a {
+  /* Navbar links stacked, visible and touch-friendly */
+  header .navbar a {
     display: block;
-    padding: 1.5rem;
-    color: var(--accent-color);
-    border-bottom: 1px solid var(--border);
+    padding: 0.9rem 0;
+    color: #eee;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
   }
 
-  .services .box-container,
-  .portfolio .box-container {
-    grid-template-columns: 1fr;
+  header .navbar a:hover { color: #fff; }
+
+  /* Ensure header remains compact */
+  .header { padding: 0.8rem 4%; }
+
+  /* Home: image smaller, hero text scaled */
+  .home {
+    padding-top: 6.5rem;
+    padding-bottom: 3rem;
+    justify-content: flex-start;
+  }
+
+  .home .image img { max-width: 260px; }
+
+  .home .content .text h1 { font-size: 2.2rem; }
+  .home .content .text h2 { font-size: 1.6rem; }
+
+  /* Services/Portfolio -> single column for readability */
+  .service .box-container,
+  .portfolio .box-container,
+  .services .box-container {
+    grid-template-columns: 1fr !important;
+    gap: 1.2rem;
+  }
+
+  /* Contact form: full width stacking */
+  .contact .box-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .contact-form { width: 100%; }
+  .contact-info { width: 100%; }
+
+  /* Reduce paddings inside boxed elements to save space */
+  .service-item,
+  .portfolio .box .content,
+  .about .image img,
+  .contact-form .box {
+    padding: 1.2rem;
   }
 }
 
-/* Móviles pequeños */
+/* -------------------------
+   Small phones / portrait
+   ------------------------- */
 @media (max-width: 450px) {
-  html {
-    font-size: 50%;
+  html { font-size: 50%; }
+
+  /* Header compact */
+  .header { padding: 0.6rem 3%; }
+  .header .logo h2 { font-size: 1.1rem; }
+
+  /* Ensure hamburger is visible and prominent */
+  #menu-btn { display: block; font-size: 1.6rem; }
+
+  /* Navbar panel narrower on tiny screens */
+  header .navbar {
+    width: 86%;
+    top: 60px;
+    height: calc(100vh - 60px);
+    padding: 1.6rem;
   }
 
-  section, header {
-    padding: 1rem;
-  }
+  /* Hero sizes */
+  .home .content .text h1 { font-size: 1.9rem; line-height: 1.1; }
+  .home .content .text h2 { font-size: 1.4rem; }
 
-  .home .text-2 {
-    font-size: 3rem;
-  }
+  .home .content .text p { font-size: 0.95rem; }
 
+  /* Image smaller circular */
+  .home .image img { max-width: 180px; }
+
+  /* Buttons */
   .btn {
-    padding: 0.8rem 1.8rem;
-    font-size: 1.2rem;
+    padding: 0.6rem 1.1rem;
+    font-size: 0.85rem;
+    border-radius: 26px;
+  }
+
+  /* Skill bars height smaller */
+  .skill-container .progress-bar { height: 5px; }
+}
+
+/* -------------------------
+   Scrollbar styles (mobile panel)
+   ------------------------- */
+header .navbar::-webkit-scrollbar { width: 8px; }
+header .navbar::-webkit-scrollbar-track { background: transparent; }
+header .navbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 8px; }
+
+/* -------------------------
+   Accessibility / reduced motion
+   ------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+
+/* -------------------------
+   Utility tweaks to maintain spacing
+   ------------------------- */
+/* For very wide screens keep content centered and limited width */
+@media (min-width: 1400px) {
+  .home .box-container,
+  .about .box-container,
+  .qualification .box-container {
+    max-width: 1200px;
+    margin: 0 auto;
   }
 }
