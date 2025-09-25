@@ -1,77 +1,77 @@
-/*--------------------- Responsive (Start) ---------------------*/
-@media (max-width: 991px){
-    html{
-        font-size: 55%;
-    }
+/*--------------------- Responsive ---------------------*/
+
+/* Tablets */
+@media (max-width: 991px) {
+  html {
+    font-size: 55%;
+  }
+
+  .home {
+    text-align: center;
+  }
+
+  .about {
+    text-align: center;
+  }
+
+  .services .box-container,
+  .portfolio .box-container {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
-@media (max-width: 768px){
-    header #menu-btn{
-        display: block;
-      } 
-  
-      .header .navbar{
-        width: 30rem;
-        position: absolute;
-        right: 0; 
-        top:100%;
-        padding: 0rem 2rem;
-        background: #F7F5F2;
-        border: 0.1rem solid #BC8CF2;
-        -webkit-transition: 0.2s linear;
-        -moz-transition: 0.2s linear;
-        -o-transition: 0.2s linear;
-        transition: 0.2s linear;
-        -webkit-transform: translateX(100%);
-        transform: translateX(100%);
-        height: calc(100vh - 6rem);
-        overflow-y: auto;
-        -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-    }
-  
-    .header .navbar.active{
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
-    }
-  
-    .header .navbar a{
-        display: block;
-        color: #000000;
-        padding: 1.5rem 0;
-        margin: 1rem 0;
-    }
-  
-    .navbar::-webkit-scrollbar{
-        width: 0.8rem;
-    }
-  
-    .navbar::-webkit-scrollbar-thumb{
-        border-radius: 1rem;
-        background-color: #BC8CF2;
-    }
-  
-    .navbar::-webkit-scrollbar-track{
-        background: transparent;
-    }
+/* Móviles medianos */
+@media (max-width: 768px) {
+  header #menu-btn {
+    display: block;
+  }
 
-    section, header{
-        padding: 2rem;
-    }
+  .header .navbar {
+    width: 25rem;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: var(--bg-color);
+    border-left: 1px solid var(--border);
+    transform: translateX(100%);
+    transition: 0.3s ease;
+    height: calc(100vh - 6rem);
+    overflow-y: auto;
+  }
 
+  .header .navbar.active {
+    transform: translateX(0);
+  }
+
+  .header .navbar a {
+    display: block;
+    padding: 1.5rem;
+    color: var(--accent-color);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .services .box-container,
+  .portfolio .box-container {
+    grid-template-columns: 1fr;
+  }
 }
 
-@media (max-width: 450px){
-    html{
-        font-size: 50%;
-    }
+/* Móviles pequeños */
+@media (max-width: 450px) {
+  html {
+    font-size: 50%;
+  }
 
-    section, header{
-        padding: 1rem;
-    }
+  section, header {
+    padding: 1rem;
+  }
 
+  .home .text-2 {
+    font-size: 3rem;
+  }
 
-
+  .btn {
+    padding: 0.8rem 1.8rem;
+    font-size: 1.2rem;
+  }
 }
-
-/*--------------------- Responsive (End) ---------------------*/
