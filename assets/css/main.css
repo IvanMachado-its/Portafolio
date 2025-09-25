@@ -1,5 +1,6 @@
 /* Table of Contents
 ----------------------------------
+
 0- Global CSS
 1- Heading CSS
 2- Button CSS
@@ -14,32 +15,22 @@
 11- Contact Area CSS
 12- Footer Area CSS
 13- Scroll-Top Area CSS
+
 */
 
 
 /*--------------------- 0- Global CSS (Start) ---------------------*/
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
 :root{
-    /* Colores minimalistas dark */
-    --pure-white: #ffffff;
-    --off-white: #fafafa;
-    --pure-black: #000000;
-    --dark-bg: #0a0a0a;
-    --dark-surface: #111111;
-    --dark-elevated: #1a1a1a;
-    --border-subtle: rgba(255, 255, 255, 0.06);
-    --border-light: rgba(255, 255, 255, 0.1);
-    --text-primary: #ffffff;
-    --text-secondary: rgba(255, 255, 255, 0.6);
-    --text-muted: rgba(255, 255, 255, 0.4);
-    --accent: #ffffff;
-    --shadow-soft: 0 4px 24px rgba(0, 0, 0, 0.4);
-    --shadow-hard: 0 8px 32px rgba(0, 0, 0, 0.6);
+    --purple: #BC8CF2;
+    --black: #000000;
+    --white: #F7F5F2;
+    --grey: #DFDFDE;
 }
 
 *{
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Roboto', sans-serif;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     margin: 0;
@@ -47,48 +38,55 @@
     text-decoration: none;
     border: none;
     outline: none;
-    -webkit-transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-       -moz-transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-         -o-transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    -webkit-transition: all 0.2s linear;
+       -moz-transition: all 0.2s linear;
+         -o-transition: all 0.2s linear;
+  	        transition: all 0.2s linear;
 }
 
 *::selection{
-    color: var(--pure-black);
-    background-color: var(--pure-white);
+    color: var(--white);
+    background-color: var(--purple);
 }
 
 html{
     font-size: 62.5%;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    scroll-padding-top: 8rem;
+    scroll-padding-top: 6rem;
 }
 
 body{
-    background-color: var(--dark-bg);
-    color: var(--text-primary);
-    font-weight: 400;
-    line-height: 1.6;
-    letter-spacing: 0.02em;
+    background-color: var(--black);
 }
 
 section{
-    padding: 10rem 5%;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 2rem 5%;
 }
 
 ::-webkit-scrollbar{
-    width: 0.4rem;
+    width: 0.8rem;
 }
 
 ::-webkit-scrollbar-thumb{
-    background-color: var(--text-muted);
+    border-radius: 1rem;
+    background-color: var(--purple);
 }
 
 ::-webkit-scrollbar-track{
-    background-color: var(--dark-surface);
+    background-color: var(--black);
+}
+
+.swiper-pagination-bullet{
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50rem;
+    background-color: var(--grey);
+}
+
+.swiper-pagination-bullet-active{
+    width: 3rem;
+    background: var(--purple);
 }
 
 /*--------------------- 0- Global CSS (End) ---------------------*/
@@ -97,34 +95,31 @@ section{
 
 /*--------------------- 1- Heading CSS (Start) ---------------------*/
 .heading{
-    margin-bottom: 8rem;
-    text-align: center;
+    margin-bottom: 2rem;
 }
 
 .heading h2{
-    font-size: 4.2rem;
-    font-weight: 300;
-    color: var(--text-primary);
-    letter-spacing: -0.02em;
-    position: relative;
-    display: inline-block;
+    text-align: center;
+    padding-bottom: 2rem;
+    color:var(--purple);
+    font-size: 4rem;
 }
 
 .heading h2 span{
-    font-weight: 600;
     position: relative;
+    z-index: 0;
+    color: var(--white);
 }
 
-.heading h2::after{
+.heading h2 span::before{
     content: '';
     position: absolute;
-    bottom: -2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 4rem;
-    height: 0.1rem;
-    background: var(--pure-white);
-    opacity: 0.5;
+    bottom: -0.5rem; left: 0;
+    z-index: -1;
+    background: var(--purple);
+    height: 0.2rem;
+    width: 80%;
+    margin-left: 10%;
 }
 
 /*--------------------- 1- Heading CSS (End) ---------------------*/
@@ -133,58 +128,22 @@ section{
 
 /*--------------------- 2- Button CSS (Start) ---------------------*/
 .btn{
-    display: inline-flex;
-    align-items: center;
-    gap: 1.2rem;
-    padding: 1.6rem 3.2rem;
-    font-size: 1.5rem;
-    font-weight: 500;
-    color: var(--pure-black);
-    background-color: var(--pure-white);
-    border: 1px solid var(--pure-white);
-    border-radius: 0;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    transition: all 0.3s ease;
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-size: 1.8rem;
+    color: var(--purple);
+    background-color: transparent;
+    border: 0.2rem solid var(--purple);
 }
 
-.btn::before{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--pure-black);
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-}
-
-.btn:hover::before{
-    transform: translateX(0);
+.btn i{
+    padding-left: 1rem;
 }
 
 .btn:hover{
-    color: var(--pure-white);
-}
-
-.btn span,
-.btn i{
-    position: relative;
-    z-index: 1;
-}
-
-.btn-outline{
-    background-color: transparent;
-    color: var(--pure-white);
-    border: 1px solid var(--border-light);
-}
-
-.btn-outline:hover{
-    border-color: var(--pure-white);
+    color: var(--white);
+    background-color: var(--purple);
+    cursor: pointer;
 }
 
 /*--------------------- 2- Button CSS (End) ---------------------*/
@@ -197,74 +156,66 @@ header{
     top: 0;
     left: 0;
     width: 100%;
-    padding: 2.5rem 5%;
+    padding: 2rem 5%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     background: transparent;
-    z-index: 1000;
-    transition: all 0.3s ease;
+    -webkit-transition: all 0.5s linear;
+       -moz-transition: all 0.5s linear;
+         -o-transition: all 0.5s linear;
+            transition: all 0.5s linear;
+    z-index: 999;
 }
 
 header.sticky{
-    background: rgba(10, 10, 10, 0.95);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border-subtle);
-    padding: 2rem 5%;
+    border-bottom: 0.1rem solid var(--grey);
+    background: rgba(0, 0, 0, 0.8);
 }
 
 header .logo h2{
-    font-size: 2.2rem;
-    font-weight: 300;
-    color: var(--pure-white);
-    letter-spacing: 0.05em;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--purple);
     text-transform: uppercase;
-}
-
-header .navbar{
-    display: flex;
-    gap: 4rem;
+    letter-spacing: 0.2rem;
 }
 
 header .navbar a{
-    color: var(--text-secondary);
-    font-size: 1.4rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    position: relative;
-    padding: 0.5rem 0;
-    transition: all 0.3s ease;
-}
-
-header .navbar a::after{
-    content: '';
-    position: absolute;
-    bottom: -0.5rem;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background: var(--pure-white);
-    transition: width 0.3s ease;
+    color: var(--white);
+    font-size: 1.8rem;
+    margin-left: 1rem;
 }
 
 header .navbar a:hover,
 header .navbar a.active{
-    color: var(--pure-white);
-}
-
-header .navbar a:hover::after,
-header .navbar a.active::after{
-    width: 100%;
+    color: var(--purple);
 }
 
 header #menu-btn{
-    font-size: 2.2rem;
-    color: var(--pure-white);
+    font-size: 3rem;
+    color: var(--white);
     cursor: pointer;
+    -webkit-transition: all 0.5s linear;
+       -moz-transition: all 0.5s linear;
+         -o-transition: all 0.5s linear;
+            transition: all 0.5s linear;
     display: none;
-    padding: 1rem;
+}
+
+header .fa-times{
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+}
+
+header #menu-btn:hover{
+    color: var(--purple);
 }
 
 /*--------------------- 3- Header Area CSS (End) ---------------------*/
@@ -273,623 +224,281 @@ header #menu-btn{
 
 /*--------------------- 4- Home Area CSS (Start) ---------------------*/
 .home{
+    padding: 0rem 5%;
+    background-color: var(--black);
     min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 0 5%;
-    background: var(--dark-bg);
-    position: relative;
-}
-
-.home::before{
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, rgba(255,255,255,0.02) 0%, transparent 70%);
-    pointer-events: none;
 }
 
 .home .box-container{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8rem;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-    z-index: 2;
-    position: relative;
-}
-
-.home .content h2{
-    font-size: 1.8rem;
-    font-weight: 300;
-    color: var(--text-secondary);
-    margin-bottom: 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    opacity: 0;
-    animation: fadeInUp 0.8s ease forwards 0.2s;
-}
-
-.home .content h1{
-    font-size: 5.4rem;
-    font-weight: 700;
-    color: var(--pure-white);
-    line-height: 1.1;
-    margin-bottom: 2.5rem;
-    letter-spacing: -0.03em;
-    opacity: 0;
-    animation: fadeInUp 0.8s ease forwards 0.4s;
-}
-
-.home .content h1 span{
-    font-weight: 300;
-}
-
-.home .content p{
-    font-size: 1.7rem;
-    color: var(--text-secondary);
-    line-height: 1.8;
-    margin-bottom: 4rem;
-    max-width: 50rem;
-    opacity: 0;
-    animation: fadeInUp 0.8s ease forwards 0.6s;
-}
-
-.home .content .btn{
-    opacity: 0;
-    animation: fadeInUp 0.8s ease forwards 0.8s;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    gap: 4rem;
 }
 
 .home .image{
     text-align: center;
-    opacity: 0;
-    animation: fadeIn 1s ease forwards 1s;
+    -webkit-box-flex: 1;
+      -ms-flex: 1 1 40rem;
+          flex: 1 1 40rem;
+
 }
 
 .home .image img{
-    width: 40rem;
     height: 40rem;
-    border-radius: 0;
-    object-fit: cover;
-    filter: grayscale(100%) contrast(1.2);
-    border: 1px solid var(--border-subtle);
+    width: 40rem;
+    border-radius: 50% 50% 50% 50% / 30% 30% 70% 70% ;
+    object-fit:cover;
 }
 
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    from {
-        opacity: 0;
-        transform: translateY(2rem);
+.home .content{
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 40rem;
+        flex: 1 1 40rem;
+
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+    margin-top: 7rem;
 }
 
-.scroll-top.active{
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+.home .content h2{
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--purple);
 }
 
-.scroll-top:hover{
-    background: var(--pure-white);
-    color: var(--pure-black);
-    border-color: var(--pure-white);
+.home .content h1{
+    font-size: 4rem;
+    color: var(--white);
+    padding: 1rem 0;
+    text-transform: none;
 }
 
-/*--------------------- 13- Scroll-Top Area CSS (End) ---------------------*/
+.home .content h1 span{
+    color: var(--purple);
 
-
-
-/*--------------------- Responsive Design (Start) ---------------------*/
-@media (max-width: 1200px){
-    html{
-        font-size: 58%;
-    }
-    
-    section{
-        padding: 8rem 3%;
-    }
 }
 
-@media (max-width: 991px){
-    html{
-        font-size: 55%;
-    }
-    
-    .home .box-container{
-        grid-template-columns: 1fr;
-        gap: 5rem;
-        text-align: center;
-    }
-    
-    .home .content h1{
-        font-size: 4.5rem;
-    }
-    
-    .about .box-container{
-        grid-template-columns: 1fr;
-        gap: 5rem;
-    }
-    
-    .about .image{
-        position: static;
-        text-align: center;
-    }
-    
-    .qualification .box-container{
-        grid-template-columns: 1fr;
-        gap: 5rem;
-    }
-    
-    .contact .box-container{
-        grid-template-columns: 1fr;
-        gap: 5rem;
-    }
+.home .content p{
+    font-size: 1.7rem;
+    font-weight: 400;
+    color: var(--white);
+    padding-bottom: 2rem;
+    line-height: 1.5;
 }
-
-@media (max-width: 768px){
-    header{
-        padding: 2rem 3%;
-    }
-    
-    header #menu-btn{
-        display: block;
-    }
-    
-    header .navbar{
-        position: fixed;
-        top: 7rem;
-        right: -100%;
-        width: 30rem;
-        height: calc(100vh - 7rem);
-        background: var(--dark-surface);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border-left: 1px solid var(--border-subtle);
-        padding: 3rem 2rem;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 2rem;
-        transition: right 0.3s ease;
-    }
-    
-    header .navbar.active{
-        right: 0;
-    }
-    
-    header .navbar a{
-        color: var(--text-primary);
-        font-size: 1.6rem;
-        width: 100%;
-        padding: 1.5rem 0;
-        border-bottom: 1px solid var(--border-subtle);
-    }
-    
-    header .navbar a:last-child{
-        border-bottom: none;
-    }
-    
-    section{
-        padding: 6rem 2rem;
-    }
-    
-    .home .content h1{
-        font-size: 4rem;
-    }
-    
-    .skills{
-        grid-template-columns: 1fr;
-    }
-    
-    .service .box-container{
-        grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
-        gap: 2rem;
-    }
-    
-    .portfolio .box-container{
-        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-        gap: 1.5rem;
-    }
-}
-
-@media (max-width: 450px){
-    html{
-        font-size: 50%;
-    }
-    
-    section{
-        padding: 5rem 1.5rem;
-    }
-    
-    header{
-        padding: 1.5rem 2rem;
-    }
-    
-    header .navbar{
-        width: 100%;
-        right: -100%;
-        top: 6.5rem;
-        border-left: none;
-        border-top: 1px solid var(--border-subtle);
-    }
-    
-    .home .content h1{
-        font-size: 3.5rem;
-        line-height: 1.3;
-    }
-    
-    .home .content p{
-        font-size: 1.5rem;
-    }
-    
-    .home .image img{
-        width: 30rem;
-        height: 30rem;
-    }
-    
-    .about .content .about-info{
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-    
-    .service .box-container{
-        grid-template-columns: 1fr;
-    }
-    
-    .portfolio .box-container{
-        grid-template-columns: 1fr;
-    }
-    
-    .contact-form{
-        padding: 2.5rem;
-    }
-    
-    .experience-item{
-        margin-left: 4rem;
-        padding: 2rem;
-    }
-    
-    .experience-item i{
-        left: -4.5rem;
-        width: 3rem;
-        height: 3rem;
-        font-size: 1.4rem;
-    }
-    
-    .btn{
-        padding: 1.4rem 2.8rem;
-        font-size: 1.3rem;
-    }
-}
-
-/*--------------------- Responsive Design (End) ---------------------*/
-
-
-
-/*--------------------- Modern Minimal Enhancements (Start) ---------------------*/
-
-/* Animaciones sutiles */
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateX(-2rem);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes fadeInSlow {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-/* Loading state minimalista */
-.loading {
-    opacity: 0.3;
-}
-
-/* Smooth scrolling mejorado */
-@media (prefers-reduced-motion: no-preference) {
-    html {
-        scroll-behavior: smooth;
-    }
-    
-    * {
-        animation-duration: 0.4s !important;
-    }
-}
-
-/* Focus minimalista */
-*:focus-visible {
-    outline: 1px solid var(--pure-white);
-    outline-offset: 0.3rem;
-}
-
-/* Selection personalizada */
-::selection {
-    background: var(--pure-white);
-    color: var(--pure-black);
-}
-
-::-moz-selection {
-    background: var(--pure-white);
-    color: var(--pure-black);
-}
-
-/* Hover states globales */
-a, button {
-    position: relative;
-}
-
-/* Text gradient sutil */
-.gradient-text {
-    background: linear-gradient(90deg, var(--pure-white) 0%, var(--text-secondary) 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* Efecto de hover minimalista para cards */
-.service-item::before,
-.portfolio-item::before,
-.experience-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, transparent, rgba(255,255,255,0.03));
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-}
-
-.service-item:hover::before,
-.portfolio-item:hover::before,
-.experience-item:hover::before {
-    opacity: 1;
-}
-
-/* Micro-interacciones */
-.btn, 
-.controls .button, 
-footer .social .fab,
-.scroll-top {
-    transform-style: preserve-3d;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Estados de carga elegantes */
-input:disabled,
-textarea:disabled,
-button:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-}
-
-/* Scrollbar minimalista */
-::-webkit-scrollbar {
-    width: 0.2rem;
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--text-muted);
-    border-radius: 0;
-}
-
-::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-/* Print styles */
-@media print {
-    body {
-        background: white;
-        color: black;
-    }
-    
-    header, 
-    footer, 
-    .scroll-top {
-        display: none;
-    }
-}
-
-/* Accesibilidad mejorada */
-@media (prefers-contrast: high) {
-    :root {
-        --border-subtle: rgba(255, 255, 255, 0.2);
-        --text-secondary: rgba(255, 255, 255, 0.8);
-    }
-}
-
-/* Dark mode explícito (ya aplicado por defecto) */
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: var(--dark-bg);
-    }
-}
-
-/* Optimización de rendimiento */
-.home .image img,
-.about .image img,
-.portfolio-item img,
-.blog-item .image img {
-    will-change: transform, filter;
-}
-
-/* Transiciones GPU aceleradas */
-.btn,
-.service-item,
-.portfolio-item,
-.experience-item {
-    transform: translateZ(0);
-    backface-visibility: hidden;
-}
-
-/*--------------------- Modern Minimal Enhancements (End) ---------------------*/
-    }
-}
-
-@keyframes fadeIn {
-    to { opacity: 1; }
-    from { opacity: 0; }
-}
-
 /*--------------------- 4- Home Area CSS (End) ---------------------*/
 
 
 
 /*--------------------- 5- About Area CSS (Start) ---------------------*/
 .about .box-container{
-    display: grid;
-    grid-template-columns: 35rem 1fr;
-    gap: 8rem;
-    align-items: start;
-    margin-bottom: 8rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem 0;
 }
 
 .about .image{
-    position: sticky;
-    top: 12rem;
+    width: 32rem;
+    text-align: center;
 }
 
 .about .image img{
     width: 100%;
-    border-radius: 0;
-    filter: grayscale(100%) contrast(1.2);
-    border: 1px solid var(--border-subtle);
+    border: 1rem solid var(--purple);
+}
+
+.about .content{
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 55rem;
+        flex: 1 1 55rem;
 }
 
 .about .content h2{
-    font-size: 3.2rem;
-    font-weight: 300;
-    color: var(--pure-white);
-    margin-bottom: 3rem;
-    letter-spacing: -0.02em;
+    font-size: 3rem;
+    color: var(--white);
+    padding-bottom: 1rem;
 }
 
 .about .content > p{
     font-size: 1.6rem;
-    color: var(--text-secondary);
-    line-height: 1.8;
-    margin-bottom: 4rem;
+    color: var(--grey);
+    line-height: 1.6;
+    padding-bottom: 1rem;
 }
 
 .about .content .about-info{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    margin-bottom: 5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+        justify-content: flex-start;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.about .content .about-info .info{
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 15rem;
+        flex: 1 1 15rem;
 }
 
 .about .content .about-info .info h4{
-    font-size: 1.4rem;
-    color: var(--text-secondary);
-    margin-bottom: 0.8rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    font-size: 1.6rem;
+    color: var(--white);
+    padding-bottom: 1rem;
 }
 
-.about .content .about-info .info h4 span{
-    color: var(--pure-white);
-    font-weight: 500;
-    text-transform: none;
-    letter-spacing: normal;
-    display: block;
-    margin-top: 0.5rem;
+.about .content .about-info .info span{
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--grey);
+}
+
+.about .content .about-info .info .btn{
+    margin-top: 1rem;
 }
 
 .counting{
-    background: transparent;
-    border: 1px solid var(--border-subtle);
-    padding: 4rem;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 35rem;
+        flex: 1 1 35rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .counting .box{
+    -webkit-box-flex: 1;
+/*---------------------    -ms-flex: 1 1 18rem;
+        flex: 1 1 18rem; ---------------------*/
     text-align: center;
+    background-color: #222;
+    padding: 2rem;
 }
 
 .counting .box .count{
-    font-size: 4.8rem;
-    font-weight: 200;
-    color: var(--pure-white);
-    margin-bottom: 1rem;
-    display: block;
+    font-size: 3.5rem;
+    color: var(--purple);
+    padding-bottom: 0.5rem;
 }
 
 .counting .box h3{
-    font-size: 1.4rem;
-    color: var(--text-secondary);
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    font-size: 1.8rem;
+    color: var(--white);
 }
 
 .skill-container{
-    margin-top: 10rem;
+    padding: 2rem 0;
 }
 
 .skills{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
-    gap: 4rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
 }
 
 .skill-item{
-    background: transparent;
-    padding: 3rem;
-    border: 1px solid var(--border-subtle);
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 30rem;
+        flex: 1 1 30rem;
+    margin-right: 1.5rem;
 }
 
 .skill-item .box{
-    margin-bottom: 3rem;
+    padding:1rem 0;
 }
 
-.skill-item .box:last-child{
-    margin-bottom: 0;
-}
-
-.skill-item .box h3{
+ .skill-item .box h3{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-    font-size: 1.4rem;
-    color: var(--text-secondary);
+    padding:.7rem 0;
+    font-size: 1.7rem;
+    color: var(--white);
     font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
 }
 
-.skill-item .box h3 span{
-    color: var(--pure-white);
-    font-weight: 500;
+ .skill-item .box .progress-bar{
+    width:100%;
+    background:#222;
+    overflow:hidden;
+    height:1rem;
+    border-radius: 50rem;
 }
 
-.skill-item .box .progress-bar{
-    width: 100%;
-    height: 0.2rem;
-    background: var(--border-subtle);
-    overflow: hidden;
-    position: relative;
+ .skill-item .box .progress-bar span{
+    display:block;
+    height:100%;
+    background: var(--purple);
 }
 
-.skill-item .box .progress-bar span{
-    display: block;
-    height: 100%;
-    background: var(--pure-white);
+ .skill-item.item1 .box:nth-child(1) .progress-bar span{
+    width:95%;
+}
+
+ .skill-item.item1 .box:nth-child(2) .progress-bar span{
+    width:90%;
+}
+
+ .skill-item.item1 .box:nth-child(3) .progress-bar span{
+    width:85%;
+}
+
+.skill-item.item2 .box:nth-child(1) .progress-bar span{
+    width:75%;
+}
+
+ .skill-item.item2 .box:nth-child(2) .progress-bar span{
+    width:65%;
+}
+
+ .skill-item.item2 .box:nth-child(3) .progress-bar span{
+    width:60%;
 }
 
 /*--------------------- 5- About Area CSS (End) ---------------------*/
@@ -898,77 +507,74 @@ button:disabled {
 
 /*--------------------- 6- Qualification Area CSS (Start) ---------------------*/
 .qualification .box-container{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    gap: 4rem;
 }
 
 .education, .experience{
-    position: relative;
-}
-
-.education::before, .experience::before{
-    content: '';
-    position: absolute;
-    left: 2rem;
-    top: 0;
-    height: 100%;
-    width: 1px;
-    background: var(--border-subtle);
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 40rem;
+        flex: 1 1 40rem;
 }
 
 .experience-item{
     position: relative;
-    margin-left: 6rem;
-    margin-bottom: 4rem;
-    background: transparent;
-    padding: 3rem;
-    border: 1px solid var(--border-subtle);
-    transition: all 0.3s ease;
-}
-
-.experience-item:hover{
-    border-color: var(--border-light);
-    transform: translateX(0.5rem);
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 40rem;
+        flex: 1 1 40rem;
+    padding: 0 3rem 2rem 3rem;
+    border-left: 0.2rem solid var(--purple);
+    margin-left: 2rem;
 }
 
 .experience-item i{
     position: absolute;
-    left: -6.5rem;
-    top: 3rem;
-    width: 4rem;
-    height: 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.6rem;
-    color: var(--pure-white);
-    background: var(--dark-bg);
-    border: 1px solid var(--border-light);
+    top: 0; 
+    left: -2.5rem;
+    height:5rem;
+    width: 5rem;
+    border-radius: 50%;
+    line-height: 5rem;
+    text-align: center;
+    font-size: 2rem;
+    color:var(--white);
+    background:var(--purple);
+}
+
+.experience-item .content{
+    border-radius: 0.5rem;
+    padding: 1rem 2rem;
+    border-left: 2rem;
 }
 
 .experience-item span{
-    color: var(--text-secondary);
-    font-size: 1.3rem;
-    display: inline-block;
-    margin-bottom: 2rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    background: #222;
+    color: var(--white);
+    padding: 0.5rem 1.5rem;
+    font-size: 1.8rem;
+    border-radius: 50rem;
 }
 
 .experience-item h3{
-    font-size: 2rem;
-    color: var(--pure-white);
-    margin-bottom: 1.5rem;
-    font-weight: 500;
-    letter-spacing: -0.01em;
+    font-size: 2.5rem;
+    color: var(--white);
+    padding: 2rem 0;
 }
 
 .experience-item p{
-    color: var(--text-secondary);
-    font-size: 1.5rem;
-    line-height: 1.8;
+    color: var(--grey);
+    font-size: 1.6rem;
+    line-height: 2.5rem;
 }
 
 /*--------------------- 6- Qualification Area CSS (End) ---------------------*/
@@ -977,44 +583,58 @@ button:disabled {
 
 /*--------------------- 7- Services Area CSS (Start) ---------------------*/
 .service .box-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-    gap: 3rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    gap: 1.5rem;
 }
 
 .service-item{
-    background: transparent;
-    padding: 5rem 3rem;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 33rem;
+        flex: 1 1 33rem;
+    background-color: var(--black);
+    padding: 4rem 3rem;
     text-align: center;
-    border: 1px solid var(--border-subtle);
-    transition: all 0.4s ease;
-    position: relative;
+    border: 0.1rem solid rgba(255,255, 255, 0.3);
+    border-radius: 0.5rem;
+    -webkit-transition: all 0.5s linear;
+       -moz-transition: all 0.5s linear;
+         -o-transition: all 0.5s linear;
+            transition: all 0.5s linear;
 }
 
 .service-item:hover{
-    border-color: var(--border-light);
-    transform: translateY(-0.5rem);
+    background-color: var(--purple);
 }
 
 .service-item i{
-    color: var(--pure-white);
-    font-size: 3.2rem;
-    margin-bottom: 2.5rem;
-    opacity: 0.8;
+    color: var(--white);
+    font-size: 4rem;
 }
 
 .service-item h3{
     font-size: 2rem;
-    color: var(--pure-white);
-    margin-bottom: 1.5rem;
-    font-weight: 500;
-    letter-spacing: -0.01em;
+    color: var(--white);
+    padding: 1.5rem 0;
 }
 
 .service-item p{
-    font-size: 1.5rem;
-    color: var(--text-secondary);
-    line-height: 1.8;
+    font-size: 1.6rem;
+    color: var(--grey);
+    line-height: 1.6;
+}
+
+.service-item:hover p{
+    color: var(--white);
 }
 
 /*--------------------- 7- Services Area CSS (End) ---------------------*/
@@ -1023,102 +643,188 @@ button:disabled {
 
 /*--------------------- 8- Portfolio Area CSS (Start) ---------------------*/
 .controls{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    gap: 2rem;
-    margin-bottom: 5rem;
-    list-style: none;
+    list-style-type: none;
+    margin-top: 2rem;
 }
 
 .controls .button{
-    padding: 1rem 2.5rem;
-    font-size: 1.4rem;
-    color: var(--text-secondary);
-    background: transparent;
-    border: 1px solid var(--border-subtle);
     cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    margin: 0.5rem;
 }
 
-.controls .button:hover,
 .controls .button.active{
-    color: var(--pure-white);
-    border-color: var(--pure-white);
+    cursor: pointer;
+    background-color: var(--purple);
+    color: var(--white);
 }
 
 .portfolio .box-container{
+    display: -ms-grid;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(33rem, 1fr));
+    gap: 0.5rem;
+    padding: 2rem 0; 
 }
 
 .portfolio-item{
-    height: 30rem;
+    border-radius: 0.5rem;
+    height: 25rem;
     overflow: hidden;
     position: relative;
-    background: var(--dark-surface);
 }
 
 .portfolio-item img{
-    width: 100%;
     height: 100%;
+    width: 100%;
     object-fit: cover;
-    filter: grayscale(100%) contrast(1.2);
-    transition: all 0.5s ease;
-}
-
-.portfolio-item:hover img{
-    filter: grayscale(0%);
-    transform: scale(1.05);
 }
 
 .portfolio-item .content{
+    content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.95);
+    top: 10%;
+    left: 10%;
+    height: 80%;
+    width: 80%;
+    border-radius: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
-    text-align: center;
-    padding: 3rem;
-    opacity: 0;
-    transition: all 0.4s ease;
-}
-
-.portfolio-item:hover .content{
-    opacity: 1;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-transform: scale(0);
+            transform: scale(0);
 }
 
 .portfolio-item .content h4{
-    font-size: 2.2rem;
-    font-weight: 500;
-    color: var(--pure-white);
-    margin-bottom: 1rem;
-    transform: translateY(1rem);
-    transition: all 0.4s ease 0.1s;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--purple);
+    transform-origin: top;
+    -webkit-transform: translateY(-10rem);
+            transform: translateY(-10rem);
+    opacity: 0;
+    padding-bottom: 1rem;
+    -webkit-transition: all 0.4s linear;
+       -moz-transition: all 0.4s linear;
+         -o-transition: all 0.4s linear;
+            transition: all 0.4s linear;
 }
 
 .portfolio-item .content p{
-    font-size: 1.5rem;
-    color: var(--text-secondary);
-    margin-bottom: 2.5rem;
-    transform: translateY(1rem);
-    transition: all 0.4s ease 0.2s;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--white);
+    transform-origin: top;
+    -webkit-transform: translateY(-10rem);
+            transform: translateY(-10rem);
+    opacity: 0;
+    -webkit-transition: all 0.4s linear;
+       -moz-transition: all 0.4s linear;
+         -o-transition: all 0.4s linear;
+            transition: all 0.4s linear;
 }
 
-.portfolio-item:hover .content h4,
-.portfolio-item:hover .content p{
-    transform: translateY(0);
+.portfolio-item .content .view-btn{
+    font-size: 2rem;
+    color: var(--purple);
+    transform-origin: top;
+    -webkit-transform: translateY(-10rem);
+            transform: translateY(-10rem);
+    opacity: 0;
+    -webkit-transition: all 0.4s linear;
+       -moz-transition: all 0.4s linear;
+         -o-transition: all 0.4s linear;
+            transition: all 0.4s linear;
+    border-radius: 5rem;
+    margin-top: 1.5rem;
 }
+
+.portfolio-item:hover .content{
+    -webkit-transform: scale(1);
+            transform: scale(1);
+}
+
+.portfolio-item:hover .content h4{
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+}
+
+.portfolio-item:hover .content p{
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+}
+
+.portfolio-item:hover .content .view-btn{
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+}
+
+.portfolio-item:hover img{
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+}
+
+/*CSS3 Animation Effects for Magnific Popup*/
+
+/* start state */
+.mfp-newspaper  .mfp-with-anim {
+    opacity: 0;
+    -webkit-transition: all 0.2s ease-in-out; 
+            transition: all 0.2s ease-in-out; 
+
+    -webkit-transform: scale(0) rotate(500deg);
+            transform: scale(0) rotate(500deg);
+}
+.mfp-newspaper.mfp-bg {
+    opacity: 0;
+    -webkit-transition: all 0.2s ease-in-out; 
+            transition: all 0.2s ease-in-out; 
+}
+  
+/* animate in */
+.mfp-newspaper.mfp-ready .mfp-with-anim {
+    opacity: 1;
+    -webkit-transform: scale(1) rotate(0deg);
+            transform: scale(1) rotate(0deg);
+}
+.mfp-newspaper.mfp-ready.mfp-bg {
+    opacity: 0.8;
+}
+  
+/* animate out */
+.mfp-newspaper.mfp-removing .mfp-with-anim {
+    -webkit-transform: scale(0) rotate(500deg);
+            transform: scale(0) rotate(500deg);
+    opacity: 0;
+}
+.mfp-newspaper.mfp-removing.mfp-bg {
+    opacity: 0;
+}
+
 
 /*--------------------- 8- Portfolio Area CSS (End) ---------------------*/
 
@@ -1127,57 +833,55 @@ button:disabled {
 /*--------------------- 9- Testimonials Area CSS (Start) ---------------------*/
 .testimonial-slider{
     position: relative;
-    padding-bottom: 6rem;
+    padding-bottom: 4rem;
+    overflow: hidden;
 }
 
 .testi-item{
-    background: transparent;
-    border: 1px solid var(--border-subtle);
-    padding: 5rem 3rem;
     text-align: center;
-    transition: all 0.3s ease;
+    border: 0.1rem solid var(--grey);
+    border-radius: 0.5rem;
+    padding: 4rem 2rem;
 }
 
 .testi-item:hover{
-    border-color: var(--border-light);
+    border-color: var(--purple);
 }
 
 .testi-item img{
-    width: 7rem;
-    height: 7rem;
+    height: 10rem;
+    width: 10rem;
     border-radius: 50%;
-    margin-bottom: 3rem;
-    filter: grayscale(100%);
-    border: 1px solid var(--border-subtle);
+    border: 0.5rem solid var(--white);
 }
 
 .testi-item .fa-quote-left{
-    font-size: 2rem;
-    color: var(--text-muted);
-    margin-bottom: 2rem;
+    display: block;
+    font-size: 3rem;
+    color: var(--white);
+    margin: 1rem 0;
 }
 
 .testi-item p{
-    color: var(--text-secondary);
+    color: var(--grey);
     font-size: 1.5rem;
-    line-height: 1.8;
-    margin-bottom: 3rem;
-    font-style: italic;
+    line-height: 1.5;
+}
+
+.testi-item .intro{
+    margin: 1rem 0;
 }
 
 .testi-item .intro h3{
-    font-size: 1.8rem;
-    color: var(--pure-white);
-    margin-bottom: 0.5rem;
-    font-weight: 500;
+    font-size: 2rem;
+    color: var(--white);
+    padding-bottom: 0.5rem;
 }
 
 .testi-item .intro h5{
-    color: var(--text-muted);
-    font-size: 1.3rem;
+    color: var(--purple);
+    font-size: 1.4rem;
     font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
 }
 
 /*--------------------- 9- Testimonials Area CSS (End) ---------------------*/
@@ -1187,72 +891,76 @@ button:disabled {
 /*--------------------- 10- Blog Area CSS (Start) ---------------------*/
 .blog-slider{
     position: relative;
-    padding-bottom: 6rem;
+    padding-bottom: 4rem;
+    overflow: hidden;
 }
 
 .blog-item{
-    background: transparent;
-    border: 1px solid var(--border-subtle);
+    background-color: #222;
+    border: 0.1rem solid rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
     overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-.blog-item:hover{
-    border-color: var(--border-light);
 }
 
 .blog-item .image{
-    height: 22rem;
+    height: 25rem;
     overflow: hidden;
-    position: relative;
-}
-
-.blog-item .image img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(100%) contrast(1.2);
-    transition: all 0.5s ease;
 }
 
 .blog-item:hover .image img{
-    filter: grayscale(0%);
-    transform: scale(1.05);
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+}
+
+.blog-item .image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 .blog-item .content{
-    padding: 3rem;
+    padding: 2rem 1rem;
 }
 
 .blog-item .content .intro{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid var(--border-subtle);
-    padding-bottom: 1.5rem;
-    margin-bottom: 2rem;
+    border-bottom: 0.2rem solid var(--grey);
+    padding: 1rem 0;
+    margin-bottom: 1.5rem;
 }
 
 .blog-item .content .intro h5{
-    font-size: 1.3rem;
-    color: var(--text-muted);
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    font-size: 1.5rem;
+}
+
+.blog-item .content .intro h5 i{
+    color: var(--purple);
+    padding-right: 0.5rem;
+}
+
+.blog-item .content .intro h5 span{
+    color: var(--grey);
 }
 
 .blog-item .content .main-heading{
-    font-size: 1.9rem;
-    font-weight: 500;
-    color: var(--pure-white);
-    margin-bottom: 1.5rem;
-    line-height: 1.4;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--white);
 }
 
 .blog-item p{
-    color: var(--text-secondary);
-    font-size: 1.5rem;
-    line-height: 1.8;
+    padding: 1rem 0;
+    font-size: 1.6rem;
+    color: var(--grey);
+}
+
+.blog-item .btn{
+    margin-top: 1rem;
 }
 
 /*--------------------- 10- Blog Area CSS (End) ---------------------*/
@@ -1260,114 +968,124 @@ button:disabled {
 
 
 /*--------------------- 11- Contact Area CSS (Start) ---------------------*/
+.contact .alert{
+    font-size: 2rem;
+    color: var(--purple);
+    border-radius: 0.5rem;
+    padding-left: 1rem;
+}
+
 .contact .box-container{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8rem;
-    align-items: start;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.contact-info{
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 42rem;
+        flex: 1 1 42rem;
 }
 
 .contact-info h3{
-    font-size: 2.8rem;
-    color: var(--pure-white);
-    margin-bottom: 2rem;
-    font-weight: 300;
+    font-size: 3rem;
+    color: var(--white);
 }
 
 .contact-info > p{
     font-size: 1.6rem;
-    color: var(--text-secondary);
-    margin-bottom: 4rem;
-    line-height: 1.8;
+    color: var(--grey);
+    padding: 0.5rem 0;
 }
 
 .contact-info .info-item{
-    margin-bottom: 3rem;
-    padding: 2.5rem;
-    background: transparent;
-    border: 1px solid var(--border-subtle);
-    transition: all 0.3s ease;
+    padding: 1rem 0;
 }
 
-.contact-info .info-item:hover{
-    border-color: var(--border-light);
+.contact-info .info-item .gmail,
+.contact-info .info-item .linkedin,
+.contact-info .info-item .github{
+    text-transform: none;
 }
 
 .contact-info .info-item h4{
-    font-size: 1.4rem;
-    color: var(--text-secondary);
-    margin-bottom: 1.5rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    font-size: 1.8rem;
+    color: var(--white);
 }
 
 .contact-info .info-item .detail{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
-    gap: 2rem;
 }
 
 .contact-info .info-item .detail .fas,
 .contact-info .info-item .detail .fab{
-    width: 4rem;
-    height: 4rem;
-    display: flex;
-    align-items: center;
+    border-radius: 50%;
+    color: var(--purple);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
-    font-size: 1.6rem;
-    color: var(--pure-white);
-    border: 1px solid var(--border-light);
-    flex-shrink: 0;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 1.5rem;
 }
 
 .contact-info .info-item .detail p{
-    font-size: 1.5rem;
-    color: var(--pure-white);
+    font-size: 1.6rem;
+    color: var(--grey);
     line-height: 1.6;
+    padding-left: 1rem;
 }
 
 .contact-form{
-    background: transparent;
-    padding: 4rem;
-    border: 1px solid var(--border-subtle);
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 42rem;
+        flex: 1 1 42rem;
 }
 
 .contact-form .box{
     width: 100%;
-    color: var(--pure-white);
-    font-size: 1.5rem;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid var(--border-subtle);
-    padding: 1.8rem 0;
-    margin-bottom: 3rem;
-    transition: all 0.3s ease;
-    font-family: inherit;
+    text-transform: none;
+    color: var(--grey);
+    font-size: 1.6rem;
+    border: 0.1rem solid rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin: 0.5rem 0;
+    background-color: #222;
 }
 
 .contact-form .box:focus{
-    border-color: var(--pure-white);
+    border-color: var(--white);
 }
 
 .contact-form .box::placeholder{
-    color: var(--text-muted);
-    font-size: 1.4rem;
+    color: var(--grey);
 }
 
 .contact-form textarea{
-    height: 12rem;
+    height: 15rem;
     resize: none;
-    font-family: inherit;
 }
 
-.contact .alert{
-    font-size: 1.5rem;
-    color: var(--pure-white);
-    margin-top: 2rem;
-    padding: 1.5rem;
-    background: transparent;
-    border: 1px solid var(--border-light);
+.contact-form .btn{
+    margin-top: 1rem;
 }
 
 /*--------------------- 11- Contact Area CSS (End) ---------------------*/
@@ -1376,72 +1094,90 @@ button:disabled {
 
 /*--------------------- 12- Footer Area CSS (Start) ---------------------*/
 footer{
-    background: transparent;
-    padding: 6rem 0;
+    background-color: var(--purple);
+    padding: 2rem 0;
     text-align: center;
-    border-top: 1px solid var(--border-subtle);
-    margin-top: 10rem;
 }
 
 footer .social{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
-    gap: 3rem;
-    margin-bottom: 4rem;
+    padding: 2rem 0;
 }
 
 footer .social .fab{
-    width: 4.5rem;
-    height: 4.5rem;
-    background: transparent;
-    border: 1px solid var(--border-subtle);
-    color: var(--text-secondary);
-    font-size: 1.8rem;
+    background-color: var(--black);
+    border-radius: 50%;
+    height: 4rem;
+    width: 4rem;
+    color: var(--white);
+    font-size: 2rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin: 0 0.5rem;
 }
 
 footer .social .fab:hover{
-    border-color: var(--pure-white);
-    color: var(--pure-white);
-    transform: translateY(-0.3rem);
+    color: var(--black);
+    background-color: var(--white);
 }
 
 footer .content p{
-    font-size: 1.4rem;
-    color: var(--text-secondary);
-    font-weight: 300;
-    letter-spacing: 0.05em;
+    font-size: 2rem;
+    color: var(--white);
 }
 
 footer .content p span{
-    color: var(--pure-white);
-    font-weight: 400;
+    color: var(--black);
 }
 
 /*--------------------- 12- Footer Area CSS (End) ---------------------*/
 
 
 
-/*--------------------- 13- Scroll-Top Area CSS (Start) ---------------------*/
+/*--------------------- 13- Scroll-Top (Start) ---------------------*/
 .scroll-top{
     position: fixed;
-    bottom: 3rem;
-    right: 3rem;
-    width: 5rem;
+    bottom: 1rem;
+    right:1rem;
     height: 5rem;
-    background: transparent;
-    color: var(--pure-white);
-    border: 1px solid var(--border-light);
-    font-size: 1.8rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+    width: 5rem;
+    font-size: 3rem;
+    font-weight:lighter;
+    background: var(--black);
+    color: var(--white);
+    border: 0.2rem solid var(--white);
+    border-radius: 50%;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
     z-index: 999;
-    transition: all 0.3s ease;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(2rem);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  .scroll-top:hover{
+    background: var(--white);
+    color:var(--black);
+  }
+
+/*--------------------- 13- Scroll-Top (End) ---------------------*/
